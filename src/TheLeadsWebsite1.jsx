@@ -7,7 +7,7 @@ const supabase = createClient(
   "sb_publishable_Jo-9ISG6AO5E6984ndGV2w_fkgWaRIg"
 );
 
-const NAV_LINKS = ["Services", "How It Works", "Why Us", "Contact"];
+const NAV_LINKS = ["Services", "How It Works", "Why Us", "Pricing", "Contact"];
 
 const SERVICES = [
   {
@@ -465,6 +465,159 @@ export default function TheLeadsWebsite() {
               </motion.div>
             </FadeUp>
           ))}
+        </div>
+      </section>
+
+      {/* Pricing */}
+      <section id="pricing" style={{ padding: "110px 5%", background: "rgba(15,23,42,0.9)", borderTop: "1px solid rgba(255,255,255,0.04)", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 50% 50%,rgba(124,58,237,0.07) 0%,transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(139,92,246,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.02) 1px,transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
+        <div style={{ position: "relative" }}>
+          <FadeUp>
+            <div style={{ textAlign: "center", marginBottom: 64 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.25)", color: "#a78bfa", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Pricing Plans</div>
+              <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: "-2px", lineHeight: 1.1 }}>
+                Simple, transparent<br />
+                <span style={{ background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>pricing</span>
+              </h2>
+              <p style={{ fontSize: 17, color: "#475569", maxWidth: 500, margin: "0 auto", lineHeight: 1.78 }}>No hidden fees. No broker commissions. Just quality leads for your real estate project.</p>
+            </div>
+          </FadeUp>
+
+          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, maxWidth: 1100, margin: "0 auto" }}>
+
+            {/* Starter */}
+            <FadeUp delay={0}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(59,130,246,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,transparent,#3b82f6,transparent)" }} />
+                <div style={{ fontSize: 12, fontWeight: 800, color: "#60a5fa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Starter</div>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
+                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹15,000</span>
+                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
+                </div>
+                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.20,000/month)</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
+                  {[
+                    "Meta Ads campaign setup",
+                    "Up to 50 leads/month",
+                    "WhatsApp lead delivery",
+                    "Weekly performance report",
+                    "1 project at a time",
+                    "Email support",
+                  ].map((f, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
+                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#60a5fa" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                      </div>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(59,130,246,0.4)" }} whileTap={{ scale: .97 }}
+                  onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                  style={{ width: "100%", background: "transparent", color: "#60a5fa", border: "1.5px solid rgba(59,130,246,0.4)", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
+                  Get started →
+                </motion.button>
+              </motion.div>
+            </FadeUp>
+
+            {/* Growth — Most Popular */}
+            <FadeUp delay={0.13}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(124,58,237,0.35)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "linear-gradient(160deg,rgba(37,99,235,0.15),rgba(124,58,237,0.15))", border: "1px solid rgba(139,92,246,0.4)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%", boxShadow: "0 0 40px rgba(124,58,237,0.15)" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,#3b82f6,#7c3aed,#3b82f6)" }} />
+                {/* Most popular badge */}
+                <div style={{ position: "absolute", top: 20, right: 20, background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", fontSize: 10, fontWeight: 800, padding: "4px 12px", borderRadius: 99, letterSpacing: "1px", textTransform: "uppercase", boxShadow: "0 0 16px rgba(124,58,237,0.5)" }}>Most Popular</div>
+                <div style={{ fontSize: 12, fontWeight: 800, color: "#a78bfa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Growth</div>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
+                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹30,000</span>
+                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
+                </div>
+                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.30,000/month)</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
+                  {[
+                    "Meta + Google Ads campaigns",
+                    "Up to 120 leads/month",
+                    "WhatsApp + Email delivery",
+                    "Site visit scheduling",
+                    "Daily performance report",
+                    "Up to 2 projects",
+                    "Priority WhatsApp support",
+                    "Monthly strategy call",
+                  ].map((f, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
+                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(139,92,246,0.2)", border: "1px solid rgba(139,92,246,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#a78bfa" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                      </div>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 32px rgba(124,58,237,0.6)" }} whileTap={{ scale: .97 }}
+                  onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                  style={{ width: "100%", background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", border: "none", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 0 24px rgba(124,58,237,0.4)" }}>
+                  Get started →
+                </motion.button>
+              </motion.div>
+            </FadeUp>
+
+            {/* Premium */}
+            <FadeUp delay={0.26}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(245,158,11,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,transparent,#f59e0b,transparent)" }} />
+                <div style={{ fontSize: 12, fontWeight: 800, color: "#fbbf24", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Premium</div>
+                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
+                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹60,000</span>
+                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
+                </div>
+                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.60,000/month)</div>
+                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
+                  {[
+                    "Meta + Google + YouTube Ads",
+                    "Unlimited leads",
+                    "Dedicated lead manager",
+                    "Site visit scheduling + followup",
+                    "Real-time dashboard access",
+                    "Unlimited projects",
+                    "24/7 dedicated support",
+                    "Weekly strategy call",
+                    "Custom creatives & videos",
+                    "CRM integration",
+                  ].map((f, i) => (
+                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
+                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
+                      </div>
+                      {f}
+                    </div>
+                  ))}
+                </div>
+                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(245,158,11,0.4)" }} whileTap={{ scale: .97 }}
+                  onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                  style={{ width: "100%", background: "transparent", color: "#fbbf24", border: "1.5px solid rgba(245,158,11,0.4)", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
+                  Get started →
+                </motion.button>
+              </motion.div>
+            </FadeUp>
+          </div>
+
+          {/* Bottom note */}
+          <FadeUp delay={0.3}>
+            <div style={{ textAlign: "center", marginTop: 48, padding: "24px 32px", background: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 16, maxWidth: 600, margin: "48px auto 0" }}>
+              <div style={{ fontSize: 14, color: "#60a5fa", fontWeight: 700, marginBottom: 8 }}>🎉 Not sure which plan to choose?</div>
+              <div style={{ fontSize: 13, color: "#475569", lineHeight: 1.7 }}>Get a free consultation and we'll recommend the best plan based on your project size, location and target audience.</div>
+              <motion.button whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(59,130,246,0.4)" }} whileTap={{ scale: .97 }}
+                onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                style={{ background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", border: "none", borderRadius: 10, padding: "12px 28px", fontSize: 14, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", marginTop: 16 }}>
+                Get free consultation →
+              </motion.button>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
