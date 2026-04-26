@@ -547,9 +547,9 @@ export default function TheLeadsWebsite() {
                 <div style={{ fontSize: 13, color: "#475569", marginBottom: 34, fontWeight: 500 }}>We'll get back within 24 hours ⚡</div>
                 <form onSubmit={handleSubmit}>
                   {[
-                    { label: "Your name", key: "name", placeholder: "Rajesh Kumar" },
-                    { label: "Phone number", key: "phone", placeholder: "+91 86185 61535" },
-                    { label: "Project name", key: "project", placeholder: "Green Valley Residences" },
+                    { label: "Your name", key: "name", placeholder: "Enter your name" },
+                    { label: "Phone number", key: "phone", placeholder: "Enter your phone number" },
+                    { label: "Project name", key: "project", placeholder: "Enter your project name" },
                   ].map((field) => (
                     <div key={field.key} style={{ marginBottom: 18 }}>
                       <label style={{ display: "block", fontSize: 10, fontWeight: 800, color: "#475569", marginBottom: 8, letterSpacing: "1.2px", textTransform: "uppercase" }}>{field.label}</label>
