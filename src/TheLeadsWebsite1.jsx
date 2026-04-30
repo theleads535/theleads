@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, useInView, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";
 
@@ -8,6 +8,82 @@ const supabase = createClient(
 );
 
 const NAV_LINKS = ["Services", "How It Works", "Why Us", "Pricing", "Contact"];
+
+// Particles component
+function Particles() {
+  const particles = Array.from({ length: 40 }, (_, i) => ({
+    id: i,
+    x: Math.random() * 100,
+    y: Math.random() * 100,
+    size: Math.random() * 3 + 1,
+    duration: Math.random() * 8 + 6,
+    delay: Math.random() * 5,
+    opacity: Math.random() * 0.4 + 0.1,
+  }));
+  return (
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", pointerEvents: "none", zIndex: 0 }}>
+      {particles.map(p => (
+        <motion.div key={p.id}
+          animate={{ y: [0, -30, 0], opacity: [p.opacity, p.opacity * 2, p.opacity], scale: [1, 1.2, 1] }}
+          transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: "easeInOut" }}
+          style={{ position: "absolute", left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, borderRadius: "50%", background: `rgba(${Math.random() > 0.5 ? "59,130,246" : Math.random() > 0.5 ? "139,92,246" : "16,185,129"},${p.opacity})`, boxShadow: `0 0 ${p.size * 3}px rgba(59,130,246,0.3)` }}
+        />
+      ))}
+    </div>
+  );
+}
+
+// Typewriter component
+function Typewriter({ texts, speed = 80 }) {
+  const [display, setDisplay] = useState("");
+  const [idx, setIdx] = useState(0);
+  const [charIdx, setCharIdx] = useState(0);
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = texts[idx];
+    let timeout;
+    if (!deleting && charIdx < current.length) {
+      timeout = setTimeout(() => setCharIdx(c => c + 1), speed);
+    } else if (!deleting && charIdx === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 2000);
+    } else if (deleting && charIdx > 0) {
+      timeout = setTimeout(() => setCharIdx(c => c - 1), speed / 2);
+    } else if (deleting && charIdx === 0) {
+      setDeleting(false);
+      setIdx(i => (i + 1) % texts.length);
+    }
+    setDisplay(current.slice(0, charIdx));
+    return () => clearTimeout(timeout);
+  }, [charIdx, deleting, idx, texts, speed]);
+
+  return (
+    <span>
+      {display}
+      <motion.span animate={{ opacity: [1, 0, 1] }} transition={{ repeat: Infinity, duration: 0.8 }}
+        style={{ display: "inline-block", width: 3, height: "0.9em", background: "#60a5fa", marginLeft: 2, verticalAlign: "middle", borderRadius: 1 }} />
+    </span>
+  );
+}
+
+// Loading screen
+function LoadingScreen({ onDone }) {
+  return (
+    <motion.div initial={{ opacity: 1 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.6 }}
+      style={{ position: "fixed", inset: 0, background: "#020817", zIndex: 9999, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 32 }}>
+      <motion.img src="/theleads.png" alt="TheLeads" initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.5, ease: "easeOut" }}
+        style={{ height: 64, filter: "brightness(0) invert(1)", objectFit: "contain" }} />
+      <div style={{ width: 200, height: 2, background: "rgba(255,255,255,0.1)", borderRadius: 2, overflow: "hidden" }}>
+        <motion.div initial={{ width: 0 }} animate={{ width: "100%" }} transition={{ duration: 1.2, ease: "easeInOut" }} onAnimationComplete={onDone}
+          style={{ height: "100%", background: "linear-gradient(90deg,#2563eb,#7c3aed)", borderRadius: 2 }} />
+      </div>
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}
+        style={{ fontSize: 12, color: "#475569", letterSpacing: "2px", fontWeight: 600, textTransform: "uppercase" }}>
+        Loading TheLeads...
+      </motion.div>
+    </motion.div>
+  );
+}
 
 const SERVICES = [
   {
@@ -121,11 +197,19 @@ export default function TheLeadsWebsite() {
   const [showNotif, setShowNotif] = useState(true);
   const [openFaq, setOpenFaq] = useState(null);
   const [imgIdx, setImgIdx] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [showBackTop, setShowBackTop] = useState(false);
   const chatEndRef = useRef(null);
 
   useEffect(() => {
     const t = setInterval(() => setImgIdx(i => (i + 1) % PROPERTY_IMAGES.length), 4000);
     return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => setShowBackTop(window.scrollY > 500);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -167,6 +251,23 @@ export default function TheLeadsWebsite() {
   return (
     <div style={{ fontFamily: "'DM Sans','Inter',sans-serif", color: "#f1f5f9", background: "#020817", minHeight: "100vh", overflowX: "hidden" }}>
       <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+      {/* Loading Screen */}
+      <AnimatePresence>
+        {loading && <LoadingScreen onDone={() => setTimeout(() => setLoading(false), 300)} />}
+      </AnimatePresence>
+
+      {/* Back to top button */}
+      <AnimatePresence>
+        {showBackTop && (
+          <motion.button initial={{ opacity: 0, scale: 0.5, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.5, y: 20 }}
+            whileHover={{ scale: 1.15, boxShadow: "0 0 30px rgba(59,130,246,0.6)" }} whileTap={{ scale: .9 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            style={{ position: "fixed", bottom: 100, left: 28, zIndex: 998, width: 48, height: 48, borderRadius: "50%", background: "linear-gradient(135deg,#2563eb,#7c3aed)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 0 20px rgba(59,130,246,0.35)" }}>
+            <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 14V4M4 9l5-5 5 5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          </motion.button>
+        )}
+      </AnimatePresence>
       <style>{`
         *{box-sizing:border-box;margin:0;padding:0}
         @keyframes gradientAnim{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
@@ -217,10 +318,12 @@ export default function TheLeadsWebsite() {
 
       {/* Hero */}
       <section style={{ minHeight: "92vh", display: "flex", alignItems: "center", padding: "60px 5%", position: "relative", overflow: "hidden" }}>
+        {/* Particles */}
+        <Particles />
         {/* Animated background */}
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 20% 50%, rgba(37,99,235,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 30%, rgba(124,58,237,0.1) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 50% 80%, rgba(16,185,129,0.06) 0%, transparent 50%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 80% 60% at 20% 50%, rgba(37,99,235,0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 30%, rgba(124,58,237,0.1) 0%, transparent 55%), radial-gradient(ellipse 40% 40% at 50% 80%, rgba(16,185,129,0.06) 0%, transparent 50%)", pointerEvents: "none", zIndex: 0 }} />
         {/* Grid pattern */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(59,130,246,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none", zIndex: 0 }} />
 
         <div className="hero-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 60, alignItems: "center", width: "100%", maxWidth: 1200, margin: "0 auto" }}>
           {/* Left */}
@@ -240,6 +343,13 @@ export default function TheLeadsWebsite() {
                 Start owning your leads.
               </motion.span>
             </motion.h1>
+
+            {/* Typewriter */}
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .8 }}
+              style={{ fontSize: 16, color: "#60a5fa", fontWeight: 700, marginBottom: 20, display: "flex", alignItems: "center", gap: 10 }}>
+              <span style={{ color: "#475569" }}>We specialize in</span>
+              <Typewriter texts={["Meta Ads for Real Estate", "Google Ads for Builders", "Quality Lead Generation", "Site Visit Scheduling", "Real Estate Marketing"]} />
+            </motion.div>
 
             <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .6, delay: .52 }}
               style={{ fontSize: 17, color: "#94a3b8", lineHeight: 1.78, marginBottom: 40, maxWidth: 480 }}>
