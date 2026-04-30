@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion, useInView, AnimatePresence, useMotionValue, useSpring } from "framer-motion";
 import { createClient } from "@supabase/supabase-js";
 
@@ -279,8 +279,8 @@ export default function TheLeadsWebsite() {
         .marquee-track{animation:marquee 25s linear infinite}
         .float{animation:float 4s ease-in-out infinite}
         .nav-a{transition:color .2s;position:relative}
-        .nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1.5px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s}
-        .nav-a:hover{color:#60a5fa!important}
+        .nav-a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:linear-gradient(90deg,#3b82f6,#8b5cf6);transition:width .3s;border-radius:2px}
+        .nav-a:hover{color:#fff!important}
         .nav-a:hover::after{width:100%}
         .glass{background:rgba(255,255,255,0.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.08)}
         .glass-light{background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.1)}
@@ -301,10 +301,11 @@ export default function TheLeadsWebsite() {
       <motion.nav initial={{ y: -64, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.55, delay: .08 }}
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 5%", height: 68, background: "rgba(2,8,23,0.85)", backdropFilter: "blur(24px)", borderBottom: "1px solid rgba(255,255,255,0.06)", position: "sticky", top: 0, zIndex: 200 }}>
         <motion.img whileHover={{ scale: 1.05, filter: "brightness(1.2)" }} src="/theleads.png" alt="TheLeads" style={{ height: 46, objectFit: "contain", filter: "brightness(0) invert(1)", cursor: "pointer" }} />
-        <ul className="nav-links" style={{ display: "flex", gap: 36, listStyle: "none" }}>
+        <ul className="nav-links" style={{ display: "flex", gap: 40, listStyle: "none" }}>
           {NAV_LINKS.map((l, i) => (
             <motion.li key={l} initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .15 + i * .07 }}>
-              <a className="nav-a" href={`#${l.toLowerCase().replace(/ /g, "-")}`} style={{ fontSize: 15, color: "#94a3b8", fontWeight: 600, textDecoration: "none" }}>{l}</a>
+              <a className="nav-a" href={`#${l.toLowerCase().replace(/ /g, "-")}`}
+                style={{ fontSize: 16, color: "#cbd5e1", fontWeight: 700, textDecoration: "none", letterSpacing: "-.3px", padding: "6px 0" }}>{l}</a>
             </motion.li>
           ))}
         </ul>
