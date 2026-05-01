@@ -7,7 +7,7 @@ const supabase = createClient(
   "sb_publishable_Jo-9ISG6AO5E6984ndGV2w_fkgWaRIg"
 );
 
-const NAV_LINKS = ["Services", "How It Works", "Why Us", "Pricing", "Contact"];
+const NAV_LINKS = ["Services", "How It Works", "Portfolio", "Pricing", "Contact"];
 
 // Particles component
 function Particles() {
@@ -545,6 +545,226 @@ export default function TheLeadsWebsite() {
               </motion.div>
             </FadeUp>
           ))}
+        </div>
+      </section>
+
+      {/* Portfolio */}
+      <section id="portfolio" style={{ padding: "110px 5%", background: "#020817", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(59,130,246,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(59,130,246,0.02) 1px,transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 50% 50%,rgba(37,99,235,0.05) 0%,transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ position: "relative" }}>
+          <FadeUp>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 24, marginBottom: 60 }}>
+              <div>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", color: "#34d399", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Our Portfolio</div>
+                <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: "-2px", lineHeight: 1.1 }}>
+                  Real projects.<br />
+                  <span style={{ background: "linear-gradient(135deg,#34d399,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Real results.</span>
+                </h2>
+                <p style={{ fontSize: 17, color: "#475569", maxWidth: 480, lineHeight: 1.78 }}>We have been running successful Meta ad campaigns for these Bangalore builders for the past 3 months.</p>
+              </div>
+              <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
+                {[
+                  { value: "4", label: "Active Projects" },
+                  { value: "3+", label: "Months Running" },
+                  { value: "500+", label: "Leads Generated" },
+                ].map((s, i) => (
+                  <div key={i} style={{ textAlign: "center" }}>
+                    <div style={{ fontSize: 32, fontWeight: 900, color: "#34d399", letterSpacing: "-1px" }}>{s.value}</div>
+                    <div style={{ fontSize: 11, color: "#475569", fontWeight: 700, letterSpacing: "0.5px", textTransform: "uppercase" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </FadeUp>
+
+          <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
+
+            {/* Project 1 — Maruti Akrida */}
+            <FadeUp delay={0}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(245,158,11,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
+                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#1a0a00,#2d1a00)", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(245,158,11,0.3),rgba(234,88,12,0.2))" }} />
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏢</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#fbbf24", letterSpacing: "-0.5px" }}>MARUTI AKRIDA</div>
+                      <div style={{ fontSize: 13, color: "rgba(251,191,36,0.7)", marginTop: 4 }}>Luxury Living in a Prime Location</div>
+                    </div>
+                  </div>
+                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(245,158,11,0.9)", color: "#000", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
+                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
+                </div>
+                <div style={{ padding: "24px 28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Maruti Akrida</div>
+                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
+                        <span>📍</span> Near Attibele Circle, Bangalore
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#fbbf24" }}>₹68L+</div>
+                      <div style={{ fontSize: 11, color: "#475569" }}>Onwards</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                    {["Premium Apartments", "Swimming Pool", "Modern Gym", "Cricket Net"].map((t, i) => (
+                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(245,158,11,0.1)", color: "#fbbf24", border: "1px solid rgba(245,158,11,0.2)" }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)", borderRadius: 12 }}>
+                    <div style={{ fontSize: 12, color: "#475569" }}>📞 8095273273</div>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  </div>
+                </div>
+              </motion.div>
+            </FadeUp>
+
+            {/* Project 2 — Amoga Sai Residency */}
+            <FadeUp delay={0.13}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(59,130,246,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
+                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#020c1b,#0d1f3c)", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(59,130,246,0.3),rgba(139,92,246,0.2))" }} />
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏗️</div>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#60a5fa", letterSpacing: "-0.5px" }}>AMOGA SAI RESIDENCY</div>
+                      <div style={{ fontSize: 13, color: "rgba(96,165,250,0.7)", marginTop: 4 }}>2 & 3 BHK Premium Apartments</div>
+                    </div>
+                  </div>
+                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(59,130,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BDA APPROVED</div>
+                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
+                </div>
+                <div style={{ padding: "24px 28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Amoga Sai Residency</div>
+                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
+                        <span>📍</span> Bangalore
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#60a5fa" }}>₹74L+</div>
+                      <div style={{ fontSize: 11, color: "#475569" }}>2BHK Onwards</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                    {["2 BHK ₹74L", "3 BHK ₹87L", "OC & CC Approved", "Banks Approved"].map((t, i) => (
+                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(59,130,246,0.1)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.2)" }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 12 }}>
+                    <div style={{ fontSize: 12, color: "#475569" }}>📞 9902221329</div>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  </div>
+                </div>
+              </motion.div>
+            </FadeUp>
+
+            {/* Project 3 — Radiant Kaira */}
+            <FadeUp delay={0.2}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(139,92,246,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
+                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#0d0520,#1a0d3d)", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(139,92,246,0.3),rgba(59,130,246,0.2))" }} />
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏙️</div>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#a78bfa", letterSpacing: "-0.5px" }}>RADIANT KAIRA</div>
+                      <div style={{ fontSize: 13, color: "rgba(167,139,250,0.7)", marginTop: 4 }}>Unique & Peaceful Living</div>
+                    </div>
+                  </div>
+                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(139,92,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
+                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
+                </div>
+                <div style={{ padding: "24px 28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Radiant Kaira</div>
+                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
+                        <span>📍</span> Chandapura, Anekal Road
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#a78bfa" }}>₹60L+</div>
+                      <div style={{ fontSize: 11, color: "#475569" }}>2BHK Onwards</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                    {["2 BHK ₹60L", "3 BHK ₹71L", "991-1490 SqFt", "Aerial View"].map((t, i) => (
+                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(139,92,246,0.1)", color: "#a78bfa", border: "1px solid rgba(139,92,246,0.2)" }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 12 }}>
+                    <div style={{ fontSize: 12, color: "#475569" }}>📞 8095273273</div>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  </div>
+                </div>
+              </motion.div>
+            </FadeUp>
+
+            {/* Project 4 — Garuda Blossoms */}
+            <FadeUp delay={0.3}>
+              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(16,185,129,0.2)" }}
+                transition={{ type: "spring", stiffness: 280, damping: 22 }}
+                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
+                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#021a10,#043d22)", overflow: "hidden" }}>
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(16,185,129,0.3),rgba(5,150,105,0.2))" }} />
+                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ textAlign: "center" }}>
+                      <div style={{ fontSize: 48, marginBottom: 8 }}>🌸</div>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#34d399", letterSpacing: "-0.5px" }}>GARUDA BLOSSOMS</div>
+                      <div style={{ fontSize: 13, color: "rgba(52,211,153,0.7)", marginTop: 4 }}>Ready to Move 3BHK Luxury</div>
+                    </div>
+                  </div>
+                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(16,185,129,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BBMP APPROVED</div>
+                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
+                </div>
+                <div style={{ padding: "24px 28px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Garuda Blossoms</div>
+                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
+                        <span>📍</span> NRI Layout, Ramamurthy Nagar
+                      </div>
+                    </div>
+                    <div style={{ textAlign: "right" }}>
+                      <div style={{ fontSize: 20, fontWeight: 900, color: "#34d399" }}>₹5999/sqft</div>
+                      <div style={{ fontSize: 11, color: "#475569" }}>All Inclusive</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                    {["3 BHK Ready", "1630-1730 SqFt", "10 Exclusive Flats", "5 Floors"].map((t, i) => (
+                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(16,185,129,0.1)", color: "#34d399", border: "1px solid rgba(16,185,129,0.2)" }}>{t}</span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 12 }}>
+                    <div style={{ fontSize: 12, color: "#475569" }}>📞 7090444421</div>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  </div>
+                </div>
+              </motion.div>
+            </FadeUp>
+          </div>
+
+          {/* CTA below portfolio */}
+          <FadeUp delay={0.4}>
+            <div style={{ textAlign: "center", marginTop: 56, padding: "36px 40px", background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 20 }}>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "#fff", marginBottom: 10, letterSpacing: "-0.5px" }}>Want results like these? 🚀</div>
+              <p style={{ fontSize: 15, color: "#475569", marginBottom: 24, lineHeight: 1.7 }}>We are currently running successful campaigns for 4 builders in Bangalore. Join them and start getting quality leads today.</p>
+              <motion.button whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(16,185,129,0.5)" }} whileTap={{ scale: .97 }}
+                onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
+                style={{ background: "linear-gradient(135deg,#10b981,#059669)", color: "#fff", border: "none", borderRadius: 12, padding: "16px 40px", fontSize: 16, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 0 24px rgba(16,185,129,0.3)" }}>
+                Get free consultation →
+              </motion.button>
+            </div>
+          </FadeUp>
         </div>
       </section>
 
