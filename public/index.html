@@ -2,42 +2,161 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/theleads.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta name="theme-color" content="#020817" />
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
+    <!-- Primary SEO Meta Tags -->
+    <title>TheLeads — Real Estate Lead Generation Agency in Bangalore</title>
+    <meta name="title" content="TheLeads — Real Estate Lead Generation Agency in Bangalore" />
+    <meta name="description" content="TheLeads is Bangalore's #1 real estate lead generation agency. We run targeted Meta & Google ads for builders and developers to generate quality property buyers. No brokers. Direct leads. Starting Rs.15,000/month." />
+    <meta name="keywords" content="real estate leads Bangalore, property leads Bangalore, meta ads real estate, google ads builders Bangalore, lead generation real estate, real estate marketing Bangalore, property buyers Bangalore, builder marketing Bangalore, digital marketing real estate, real estate agency Bangalore" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="author" content="TheLeads" />
+    <meta name="geo.region" content="IN-KA" />
+    <meta name="geo.placename" content="Bangalore" />
+    <meta name="geo.position" content="12.9716;77.5946" />
+    <meta name="ICBM" content="12.9716, 77.5946" />
+
+    <!-- Open Graph / Facebook / WhatsApp -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://theleads-sooty.vercel.app/" />
+    <meta property="og:title" content="TheLeads — Real Estate Lead Generation in Bangalore" />
+    <meta property="og:description" content="Stop paying brokers! TheLeads generates qualified real estate buyers through Meta & Google ads. 500+ leads delivered. Starting Rs.15,000/month. Free consultation!" />
+    <meta property="og:image" content="https://theleads-sooty.vercel.app/theleads.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="TheLeads" />
+    <meta property="og:locale" content="en_IN" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://theleads-sooty.vercel.app/" />
+    <meta name="twitter:title" content="TheLeads — Real Estate Lead Generation in Bangalore" />
+    <meta name="twitter:description" content="Stop paying brokers! Get direct real estate buyers through Meta & Google ads. Free consultation!" />
+    <meta name="twitter:image" content="https://theleads-sooty.vercel.app/theleads.png" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://theleads-sooty.vercel.app/" />
+
+    <!-- Schema Markup — Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TheLeads",
+      "description": "Real estate lead generation agency in Bangalore. We run Meta and Google ads for builders and developers to generate quality property buyers.",
+      "url": "https://theleads-sooty.vercel.app",
+      "logo": "https://theleads-sooty.vercel.app/theleads.png",
+      "image": "https://theleads-sooty.vercel.app/theleads.png",
+      "telephone": "+918618561535",
+      "email": "theleads535@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "openingHours": "Mo-Sa 09:00-19:00",
+      "priceRange": "Rs.15,000 - Rs.60,000/month",
+      "sameAs": [
+        "https://www.instagram.com/thele.ads"
+      ],
+      "serviceArea": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 12.9716,
+          "longitude": 77.5946
+        },
+        "geoRadius": "50000"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Real Estate Marketing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Real Estate Lead Generation",
+              "description": "Targeted Meta and Google ad campaigns for real estate builders in Bangalore"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Site Visit Scheduling",
+              "description": "Follow up and schedule site visits for qualified property buyers"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Campaign Management",
+              "description": "Full ad account setup, optimization and reporting for real estate projects"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+    <!-- Schema Markup — FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How quickly will I start getting real estate leads in Bangalore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most clients see their first leads within 48-72 hours of campaign launch. We set up everything within 24 hours of onboarding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the minimum budget for real estate lead generation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We recommend a minimum ad spend of Rs.20,000/month for meaningful results. Our service fee starts at Rs.15,000/month."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are real estate leads delivered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Leads are delivered instantly to your WhatsApp as soon as they come in with name, phone number, budget and project interest."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you work with all types of real estate projects in Bangalore?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — apartments, villas, plots, commercial spaces. As long as it's in Bangalore, we can generate leads for it."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/theleads.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>You need to enable JavaScript to run TheLeads website.</noscript>
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
   </body>
 </html>
