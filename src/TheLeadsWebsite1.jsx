@@ -149,9 +149,21 @@ const QUICK_REPLIES = ["Get a free consultation", "How does it work?", "What is 
 
 // Property images from Unsplash (free)
 const PROPERTY_IMAGES = [
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=80",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80",
-  "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=600&q=80",
+  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+  "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80",
+  "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
+  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
+  "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
+  "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80",
+];
+
+// Property images for sections
+const SECTION_IMAGES = [
+  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
 ];
 
 // Animated counter
@@ -519,6 +531,19 @@ export default function TheLeadsWebsite() {
       {/* Why us */}
       <section id="why-us" style={{ padding: "110px 5%", background: "#020817", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(139,92,246,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.02) 1px,transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
+        {/* Property image strip */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginBottom: 64, borderRadius: 20, overflow: "hidden" }}>
+          {SECTION_IMAGES.map((img, i) => (
+            <motion.div key={i} whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 160, overflow: "hidden", borderRadius: 12 }}>
+              <img src={img} alt="Property" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(37,99,235,0.5),rgba(124,58,237,0.4))" }} />
+              <div style={{ position: "absolute", bottom: 10, left: 12, fontSize: 10, fontWeight: 800, color: "#fff", letterSpacing: "1px", textTransform: "uppercase" }}>
+                {["Premium Apartments", "Luxury Villas", "Modern Plots", "Commercial Space"][i]}
+              </div>
+            </motion.div>
+          ))}
+        </div>
         <FadeUp>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", color: "#34d399", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Why TheLeads</div>
           <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: "-2px", lineHeight: 1.1 }}>
@@ -585,15 +610,9 @@ export default function TheLeadsWebsite() {
               <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(245,158,11,0.2)" }}
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#1a0a00,#2d1a00)", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(245,158,11,0.3),rgba(234,88,12,0.2))" }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏢</div>
-                      <div style={{ fontSize: 22, fontWeight: 900, color: "#fbbf24", letterSpacing: "-0.5px" }}>MARUTI AKRIDA</div>
-                      <div style={{ fontSize: 13, color: "rgba(251,191,36,0.7)", marginTop: 4 }}>Luxury Living in a Prime Location</div>
-                    </div>
-                  </div>
+                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
+                  <img src="/maruti.jpg" alt="Maruti Akrida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(245,158,11,0.9)", color: "#000", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
                 </div>
@@ -628,15 +647,9 @@ export default function TheLeadsWebsite() {
               <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(59,130,246,0.2)" }}
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#020c1b,#0d1f3c)", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(59,130,246,0.3),rgba(139,92,246,0.2))" }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏗️</div>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#60a5fa", letterSpacing: "-0.5px" }}>AMOGA SAI RESIDENCY</div>
-                      <div style={{ fontSize: 13, color: "rgba(96,165,250,0.7)", marginTop: 4 }}>2 & 3 BHK Premium Apartments</div>
-                    </div>
-                  </div>
+                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
+                  <img src="/amoga.jpg" alt="Amoga Sai Residency" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(59,130,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
                 </div>
@@ -671,15 +684,9 @@ export default function TheLeadsWebsite() {
               <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(139,92,246,0.2)" }}
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#0d0520,#1a0d3d)", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(139,92,246,0.3),rgba(59,130,246,0.2))" }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 48, marginBottom: 8 }}>🏙️</div>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#a78bfa", letterSpacing: "-0.5px" }}>RADIANT KAIRA</div>
-                      <div style={{ fontSize: 13, color: "rgba(167,139,250,0.7)", marginTop: 4 }}>Unique & Peaceful Living</div>
-                    </div>
-                  </div>
+                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
+                  <img src="/radiant.jpg" alt="Radiant Kaira" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(139,92,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
                 </div>
@@ -714,15 +721,9 @@ export default function TheLeadsWebsite() {
               <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(16,185,129,0.2)" }}
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, background: "linear-gradient(135deg,#021a10,#043d22)", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(16,185,129,0.3),rgba(5,150,105,0.2))" }} />
-                  <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <div style={{ textAlign: "center" }}>
-                      <div style={{ fontSize: 48, marginBottom: 8 }}>🌸</div>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#34d399", letterSpacing: "-0.5px" }}>GARUDA BLOSSOMS</div>
-                      <div style={{ fontSize: 13, color: "rgba(52,211,153,0.7)", marginTop: 4 }}>Ready to Move 3BHK Luxury</div>
-                    </div>
-                  </div>
+                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
+                  <img src="/garuda.jpg" alt="Garuda Blossoms" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(16,185,129,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BBMP APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
                 </div>
@@ -949,6 +950,110 @@ export default function TheLeadsWebsite() {
               </motion.button>
             </div>
           </FadeUp>
+        </div>
+      </section>
+
+      {/* Property Gallery */}
+      <section style={{ padding: "80px 5%", background: "#020817", position: "relative", overflow: "hidden" }}>
+        <FadeUp>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)", color: "#60a5fa", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Property Gallery</div>
+            <h2 style={{ fontSize: "clamp(28px,4vw,44px)", fontWeight: 900, color: "#fff", marginBottom: 14, letterSpacing: "-2px", lineHeight: 1.1 }}>
+              Projects we <span style={{ background: "linear-gradient(135deg,#60a5fa,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>market</span> in Bangalore
+            </h2>
+            <p style={{ fontSize: 16, color: "#475569", maxWidth: 480, margin: "0 auto", lineHeight: 1.78 }}>From luxury apartments to premium villas — we generate leads for all types of real estate projects.</p>
+          </div>
+        </FadeUp>
+
+        {/* Masonry style grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridTemplateRows: "auto", gap: 16 }}>
+          {/* Large image left */}
+          <FadeUp delay={0}>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 340, borderRadius: 20, overflow: "hidden", gridRow: "span 2" }}>
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Luxury Apartment" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.9) 0%, transparent 50%)" }} />
+              <div style={{ position: "absolute", bottom: 20, left: 20, right: 20 }}>
+                <div style={{ fontSize: 11, fontWeight: 800, color: "#60a5fa", letterSpacing: "1px", textTransform: "uppercase", marginBottom: 6 }}>Luxury Apartment</div>
+                <div style={{ fontSize: 17, fontWeight: 900, color: "#fff" }}>Premium 3BHK Living</div>
+                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>Whitefield, Bangalore</div>
+              </div>
+            </motion.div>
+          </FadeUp>
+
+          {/* Top middle */}
+          <FadeUp delay={0.1}>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Villa" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
+              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Luxury Villa</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Sarjapur Road</div>
+              </div>
+            </motion.div>
+          </FadeUp>
+
+          {/* Top right */}
+          <FadeUp delay={0.15}>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
+              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Modern Home" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
+              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Modern Home</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Devanahalli</div>
+              </div>
+            </motion.div>
+          </FadeUp>
+
+          {/* Bottom middle */}
+          <FadeUp delay={0.2}>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
+              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Premium Plot" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
+              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Premium Plot</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Attibele, Bangalore</div>
+              </div>
+            </motion.div>
+          </FadeUp>
+
+          {/* Bottom right */}
+          <FadeUp delay={0.25}>
+            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
+              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80" alt="Commercial Space" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
+              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
+                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Commercial Space</div>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Electronic City</div>
+              </div>
+            </motion.div>
+          </FadeUp>
+        </div>
+
+        {/* Bottom row */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginTop: 16 }}>
+          {[
+            { img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80", title: "2BHK Apartment", location: "Chandapura" },
+            { img: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80", title: "Ready to Move", location: "Ramamurthy Nagar" },
+            { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80", title: "Gated Community", location: "Anekal Road" },
+          ].map((item, i) => (
+            <FadeUp key={i} delay={i * 0.1}>
+              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
+                style={{ position: "relative", height: 180, borderRadius: 20, overflow: "hidden" }}>
+                <img src={item.img} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.9) 0%, transparent 55%)" }} />
+                <div style={{ position: "absolute", bottom: 16, left: 18 }}>
+                  <div style={{ fontSize: 14, fontWeight: 800, color: "#fff" }}>{item.title}</div>
+                  <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 3 }}>📍 {item.location}</div>
+                </div>
+                <div style={{ position: "absolute", top: 14, right: 14, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 9, fontWeight: 800, padding: "4px 10px", borderRadius: 99, letterSpacing: "1px" }}>● ACTIVE</div>
+              </motion.div>
+            </FadeUp>
+          ))}
         </div>
       </section>
 
