@@ -611,7 +611,7 @@ export default function TheLeadsWebsite() {
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
                 <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src="/maruti.jpg" alt="Maruti Akrida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={`${process.env.PUBLIC_URL}/maruti.jpg`} alt="Maruti Akrida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(245,158,11,0.9)", color: "#000", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
@@ -648,7 +648,7 @@ export default function TheLeadsWebsite() {
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
                 <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src="/amoga.jpg" alt="Amoga Sai Residency" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={`${process.env.PUBLIC_URL}/amoga.jpg`} alt="Amoga Sai Residency" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(59,130,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
@@ -685,7 +685,7 @@ export default function TheLeadsWebsite() {
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
                 <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src="/radiant.jpg" alt="Radiant Kaira" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={`${process.env.PUBLIC_URL}/radiant.jpg`} alt="Radiant Kaira" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(139,92,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
@@ -722,7 +722,7 @@ export default function TheLeadsWebsite() {
                 transition={{ type: "spring", stiffness: 280, damping: 22 }}
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
                 <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src="/garuda.jpg" alt="Garuda Blossoms" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                  <img src={`${process.env.PUBLIC_URL}/garuda.jpg`} alt="Garuda Blossoms" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                   <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
                   <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(16,185,129,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BBMP APPROVED</div>
                   <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
