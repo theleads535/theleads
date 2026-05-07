@@ -603,40 +603,54 @@ export default function TheLeadsWebsite() {
             </div>
           </FadeUp>
 
-          <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 24 }}>
+          <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 28 }}>
 
             {/* Project 1 — Maruti Akrida */}
             <FadeUp delay={0}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(245,158,11,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src={`${process.env.PUBLIC_URL}/maruti.jpg`} alt="Maruti Akrida" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(245,158,11,0.9)", color: "#000", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
-                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
-                </div>
-                <div style={{ padding: "24px 28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
-                    <div>
-                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Maruti Akrida</div>
-                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
-                        <span>📍</span> Near Attibele Circle, Bangalore
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#fbbf24" }}>₹68L+</div>
-                      <div style={{ fontSize: 11, color: "#475569" }}>Onwards</div>
+              <motion.div
+                whileHover={{ y: -12, boxShadow: "0 40px 80px rgba(245,158,11,0.3), 0 0 0 1px rgba(245,158,11,0.2)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                style={{ borderRadius: 28, overflow: "hidden", position: "relative", background: "#0a0f1e", border: "1px solid rgba(245,158,11,0.15)" }}>
+                {/* Image with parallax effect */}
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5 }}
+                  style={{ position: "relative", height: 280, overflow: "hidden" }}>
+                  <img src="/maruti.jpg" alt="Maruti Akrida" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.5) 40%, transparent 100%)" }} />
+                  {/* Glowing top line */}
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg,transparent,#f59e0b,#fbbf24,transparent)" }} />
+                  {/* Badges */}
+                  <div style={{ position: "absolute", top: 18, left: 18, display: "flex", gap: 8 }}>
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ background: "rgba(245,158,11,0.95)", backdropFilter: "blur(8px)", color: "#000", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", boxShadow: "0 0 16px rgba(245,158,11,0.5)" }}>BMRDA APPROVED</motion.div>
+                  </div>
+                  <motion.div animate={{ opacity: [1, 0.6, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                    style={{ position: "absolute", top: 18, right: 18, background: "rgba(34,197,94,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", display: "flex", alignItems: "center", gap: 5, boxShadow: "0 0 16px rgba(34,197,94,0.4)" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#fff", display: "inline-block" }} />LIVE
+                  </motion.div>
+                  {/* Title overlay on image */}
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 24px 20px" }}>
+                    <div style={{ fontSize: 30, fontWeight: 900, color: "#fff", letterSpacing: "-1px", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>Maruti Akrida</div>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", marginTop: 6, display: "flex", alignItems: "center", gap: 5 }}>
+                      <span>📍</span> Near Attibele Circle, Bangalore
                     </div>
                   </div>
+                </motion.div>
+                {/* Card body */}
+                <div style={{ padding: "20px 24px 24px" }}>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
                     {["Premium Apartments", "Swimming Pool", "Modern Gym", "Cricket Net"].map((t, i) => (
-                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(245,158,11,0.1)", color: "#fbbf24", border: "1px solid rgba(245,158,11,0.2)" }}>{t}</span>
+                      <motion.span key={i} whileHover={{ scale: 1.05, background: "rgba(245,158,11,0.2)" }}
+                        style={{ fontSize: 11, fontWeight: 700, padding: "7px 14px", borderRadius: 99, background: "rgba(245,158,11,0.08)", color: "#fbbf24", border: "1px solid rgba(245,158,11,0.2)", cursor: "default", transition: "all 0.2s" }}>{t}</motion.span>
                     ))}
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.15)", borderRadius: 12 }}>
-                    <div style={{ fontSize: 12, color: "#475569" }}>📞 8095273273</div>
-                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "linear-gradient(135deg,rgba(245,158,11,0.08),rgba(245,158,11,0.04))", border: "1px solid rgba(245,158,11,0.15)", borderRadius: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: "#64748b", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 3 }}>Starting From</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#fbbf24", letterSpacing: "-0.5px" }}>₹68 Lakhs</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 10, padding: "8px 14px" }}>
+                      <span style={{ fontSize: 14 }}>✅</span>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>TheLeads</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -644,36 +658,45 @@ export default function TheLeadsWebsite() {
 
             {/* Project 2 — Amoga Sai Residency */}
             <FadeUp delay={0.13}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(59,130,246,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src={`${process.env.PUBLIC_URL}/amoga.jpg`} alt="Amoga Sai Residency" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(59,130,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BDA APPROVED</div>
-                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
-                </div>
-                <div style={{ padding: "24px 28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
-                    <div>
-                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Amoga Sai Residency</div>
-                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
-                        <span>📍</span> Bangalore
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#60a5fa" }}>₹74L+</div>
-                      <div style={{ fontSize: 11, color: "#475569" }}>2BHK Onwards</div>
+              <motion.div
+                whileHover={{ y: -12, boxShadow: "0 40px 80px rgba(59,130,246,0.3), 0 0 0 1px rgba(59,130,246,0.2)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                style={{ borderRadius: 28, overflow: "hidden", position: "relative", background: "#0a0f1e", border: "1px solid rgba(59,130,246,0.15)" }}>
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5 }}
+                  style={{ position: "relative", height: 280, overflow: "hidden" }}>
+                  <img src="/amoga.jpg" alt="Amoga Sai Residency" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.5) 40%, transparent 100%)" }} />
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg,transparent,#3b82f6,#60a5fa,transparent)" }} />
+                  <div style={{ position: "absolute", top: 18, left: 18 }}>
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ background: "rgba(59,130,246,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", boxShadow: "0 0 16px rgba(59,130,246,0.5)" }}>BDA APPROVED</motion.div>
+                  </div>
+                  <motion.div animate={{ opacity: [1, 0.6, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                    style={{ position: "absolute", top: 18, right: 18, background: "rgba(34,197,94,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", display: "flex", alignItems: "center", gap: 5, boxShadow: "0 0 16px rgba(34,197,94,0.4)" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#fff", display: "inline-block" }} />LIVE
+                  </motion.div>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 24px 20px" }}>
+                    <div style={{ fontSize: 30, fontWeight: 900, color: "#fff", letterSpacing: "-1px", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>Amoga Sai Residency</div>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", marginTop: 6, display: "flex", alignItems: "center", gap: 5 }}>
+                      <span>📍</span> Bangalore
                     </div>
                   </div>
+                </motion.div>
+                <div style={{ padding: "20px 24px 24px" }}>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
-                    {["2 BHK ₹74L", "3 BHK ₹87L", "OC & CC Approved", "Banks Approved"].map((t, i) => (
-                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(59,130,246,0.1)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.2)" }}>{t}</span>
+                    {["2 BHK", "3 BHK", "OC & CC Approved", "Banks Approved"].map((t, i) => (
+                      <motion.span key={i} whileHover={{ scale: 1.05, background: "rgba(59,130,246,0.2)" }}
+                        style={{ fontSize: 11, fontWeight: 700, padding: "7px 14px", borderRadius: 99, background: "rgba(59,130,246,0.08)", color: "#60a5fa", border: "1px solid rgba(59,130,246,0.2)", cursor: "default", transition: "all 0.2s" }}>{t}</motion.span>
                     ))}
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 12 }}>
-                    <div style={{ fontSize: 12, color: "#475569" }}>📞 9902221329</div>
-                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "linear-gradient(135deg,rgba(59,130,246,0.08),rgba(59,130,246,0.04))", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: "#64748b", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 3 }}>Starting From</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#60a5fa", letterSpacing: "-0.5px" }}>₹74 Lakhs</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 10, padding: "8px 14px" }}>
+                      <span style={{ fontSize: 14 }}>✅</span>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>TheLeads</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -681,36 +704,45 @@ export default function TheLeadsWebsite() {
 
             {/* Project 3 — Radiant Kaira */}
             <FadeUp delay={0.2}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(139,92,246,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(139,92,246,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src={`${process.env.PUBLIC_URL}/radiant.jpg`} alt="Radiant Kaira" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(139,92,246,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BMRDA APPROVED</div>
-                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
-                </div>
-                <div style={{ padding: "24px 28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
-                    <div>
-                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Radiant Kaira</div>
-                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
-                        <span>📍</span> Chandapura, Anekal Road
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#a78bfa" }}>₹60L+</div>
-                      <div style={{ fontSize: 11, color: "#475569" }}>2BHK Onwards</div>
+              <motion.div
+                whileHover={{ y: -12, boxShadow: "0 40px 80px rgba(139,92,246,0.3), 0 0 0 1px rgba(139,92,246,0.2)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                style={{ borderRadius: 28, overflow: "hidden", position: "relative", background: "#0a0f1e", border: "1px solid rgba(139,92,246,0.15)" }}>
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5 }}
+                  style={{ position: "relative", height: 280, overflow: "hidden" }}>
+                  <img src="/radiant.jpg" alt="Radiant Kaira" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.5) 40%, transparent 100%)" }} />
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg,transparent,#8b5cf6,#a78bfa,transparent)" }} />
+                  <div style={{ position: "absolute", top: 18, left: 18 }}>
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ background: "rgba(139,92,246,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", boxShadow: "0 0 16px rgba(139,92,246,0.5)" }}>BMRDA APPROVED</motion.div>
+                  </div>
+                  <motion.div animate={{ opacity: [1, 0.6, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                    style={{ position: "absolute", top: 18, right: 18, background: "rgba(34,197,94,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", display: "flex", alignItems: "center", gap: 5, boxShadow: "0 0 16px rgba(34,197,94,0.4)" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#fff", display: "inline-block" }} />LIVE
+                  </motion.div>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 24px 20px" }}>
+                    <div style={{ fontSize: 30, fontWeight: 900, color: "#fff", letterSpacing: "-1px", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>Radiant Kaira</div>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", marginTop: 6, display: "flex", alignItems: "center", gap: 5 }}>
+                      <span>📍</span> Chandapura, Anekal Road
                     </div>
                   </div>
+                </motion.div>
+                <div style={{ padding: "20px 24px 24px" }}>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
-                    {["2 BHK ₹60L", "3 BHK ₹71L", "991-1490 SqFt", "Aerial View"].map((t, i) => (
-                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(139,92,246,0.1)", color: "#a78bfa", border: "1px solid rgba(139,92,246,0.2)" }}>{t}</span>
+                    {["2 BHK", "3 BHK", "991-1490 SqFt", "Aerial View"].map((t, i) => (
+                      <motion.span key={i} whileHover={{ scale: 1.05, background: "rgba(139,92,246,0.2)" }}
+                        style={{ fontSize: 11, fontWeight: 700, padding: "7px 14px", borderRadius: 99, background: "rgba(139,92,246,0.08)", color: "#a78bfa", border: "1px solid rgba(139,92,246,0.2)", cursor: "default", transition: "all 0.2s" }}>{t}</motion.span>
                     ))}
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(139,92,246,0.06)", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 12 }}>
-                    <div style={{ fontSize: 12, color: "#475569" }}>📞 8095273273</div>
-                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "linear-gradient(135deg,rgba(139,92,246,0.08),rgba(139,92,246,0.04))", border: "1px solid rgba(139,92,246,0.15)", borderRadius: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: "#64748b", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 3 }}>Starting From</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#a78bfa", letterSpacing: "-0.5px" }}>₹60 Lakhs</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 10, padding: "8px 14px" }}>
+                      <span style={{ fontSize: 14 }}>✅</span>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>TheLeads</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -718,36 +750,45 @@ export default function TheLeadsWebsite() {
 
             {/* Project 4 — Garuda Blossoms */}
             <FadeUp delay={0.3}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(16,185,129,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(16,185,129,0.2)", borderRadius: 24, overflow: "hidden", position: "relative" }}>
-                <div style={{ position: "relative", height: 220, overflow: "hidden" }}>
-                  <img src={`${process.env.PUBLIC_URL}/garuda.jpg`} alt="Garuda Blossoms" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-                  <div style={{ position: "absolute", top: 16, left: 16, background: "rgba(16,185,129,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>BBMP APPROVED</div>
-                  <div style={{ position: "absolute", top: 16, right: 16, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 12px", borderRadius: 99, letterSpacing: "1px" }}>● CAMPAIGN ACTIVE</div>
-                </div>
-                <div style={{ padding: "24px 28px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
-                    <div>
-                      <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 4 }}>Garuda Blossoms</div>
-                      <div style={{ fontSize: 13, color: "#475569", display: "flex", alignItems: "center", gap: 6 }}>
-                        <span>📍</span> NRI Layout, Ramamurthy Nagar
-                      </div>
-                    </div>
-                    <div style={{ textAlign: "right" }}>
-                      <div style={{ fontSize: 20, fontWeight: 900, color: "#34d399" }}>₹5999/sqft</div>
-                      <div style={{ fontSize: 11, color: "#475569" }}>All Inclusive</div>
+              <motion.div
+                whileHover={{ y: -12, boxShadow: "0 40px 80px rgba(16,185,129,0.3), 0 0 0 1px rgba(16,185,129,0.2)" }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+                style={{ borderRadius: 28, overflow: "hidden", position: "relative", background: "#0a0f1e", border: "1px solid rgba(16,185,129,0.15)" }}>
+                <motion.div whileHover={{ scale: 1.04 }} transition={{ duration: 0.5 }}
+                  style={{ position: "relative", height: 280, overflow: "hidden" }}>
+                  <img src="/garuda.jpg" alt="Garuda Blossoms" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.5) 40%, transparent 100%)" }} />
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg,transparent,#10b981,#34d399,transparent)" }} />
+                  <div style={{ position: "absolute", top: 18, left: 18 }}>
+                    <motion.div whileHover={{ scale: 1.05 }} style={{ background: "rgba(16,185,129,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", boxShadow: "0 0 16px rgba(16,185,129,0.5)" }}>BBMP APPROVED</motion.div>
+                  </div>
+                  <motion.div animate={{ opacity: [1, 0.6, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                    style={{ position: "absolute", top: 18, right: 18, background: "rgba(34,197,94,0.95)", backdropFilter: "blur(8px)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, letterSpacing: "1px", display: "flex", alignItems: "center", gap: 5, boxShadow: "0 0 16px rgba(34,197,94,0.4)" }}>
+                    <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#fff", display: "inline-block" }} />LIVE
+                  </motion.div>
+                  <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 24px 20px" }}>
+                    <div style={{ fontSize: 30, fontWeight: 900, color: "#fff", letterSpacing: "-1px", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>Garuda Blossoms</div>
+                    <div style={{ fontSize: 13, color: "rgba(255,255,255,0.65)", marginTop: 6, display: "flex", alignItems: "center", gap: 5 }}>
+                      <span>📍</span> NRI Layout, Ramamurthy Nagar
                     </div>
                   </div>
+                </motion.div>
+                <div style={{ padding: "20px 24px 24px" }}>
                   <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
                     {["3 BHK Ready", "1630-1730 SqFt", "10 Exclusive Flats", "5 Floors"].map((t, i) => (
-                      <span key={i} style={{ fontSize: 10, fontWeight: 700, padding: "4px 10px", borderRadius: 99, background: "rgba(16,185,129,0.1)", color: "#34d399", border: "1px solid rgba(16,185,129,0.2)" }}>{t}</span>
+                      <motion.span key={i} whileHover={{ scale: 1.05, background: "rgba(16,185,129,0.2)" }}
+                        style={{ fontSize: 11, fontWeight: 700, padding: "7px 14px", borderRadius: 99, background: "rgba(16,185,129,0.08)", color: "#34d399", border: "1px solid rgba(16,185,129,0.2)", cursor: "default", transition: "all 0.2s" }}>{t}</motion.span>
                     ))}
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "14px 16px", background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 12 }}>
-                    <div style={{ fontSize: 12, color: "#475569" }}>📞 7090444421</div>
-                    <div style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>✅ Managed by TheLeads</div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "linear-gradient(135deg,rgba(16,185,129,0.08),rgba(16,185,129,0.04))", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 11, color: "#64748b", fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase", marginBottom: 3 }}>Price</div>
+                      <div style={{ fontSize: 22, fontWeight: 900, color: "#34d399", letterSpacing: "-0.5px" }}>₹5999/sqft All Inclusive</div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 10, padding: "8px 14px" }}>
+                      <span style={{ fontSize: 14 }}>✅</span>
+                      <span style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>TheLeads</span>
+                    </div>
                   </div>
                 </div>
               </motion.div>
