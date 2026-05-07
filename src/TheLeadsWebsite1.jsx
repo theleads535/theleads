@@ -350,10 +350,10 @@ export default function TheLeadsWebsite() {
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
               style={{ fontSize: "clamp(36px,5vw,60px)", fontWeight: 900, lineHeight: 1.08, color: "#fff", marginBottom: 24, letterSpacing: "-2px" }}>
-              Stop paying brokers.<br />
+              Stop waiting for leads.<br />
               <motion.span initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .65, delay: .65 }}
                 style={{ background: "linear-gradient(135deg,#60a5fa,#a78bfa,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", display: "inline-block" }}>
-                Start owning your leads.
+               Start owning them.
               </motion.span>
             </motion.h1>
 
