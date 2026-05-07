@@ -262,8 +262,7 @@ export default function TheLeadsWebsite() {
 
   return (
     <div style={{ fontFamily: "'DM Sans','Inter',sans-serif", color: "#f1f5f9", background: "#020817", minHeight: "100vh", overflowX: "hidden" }}>
-      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
       {/* Loading Screen */}
       <AnimatePresence>
         {loading && <LoadingScreen onDone={() => setTimeout(() => setLoading(false), 300)} />}
