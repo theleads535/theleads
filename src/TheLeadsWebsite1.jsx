@@ -262,7 +262,8 @@ export default function TheLeadsWebsite() {
 
   return (
     <div style={{ fontFamily: "'DM Sans','Inter',sans-serif", color: "#f1f5f9", background: "#020817", minHeight: "100vh", overflowX: "hidden" }}>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
       {/* Loading Screen */}
       <AnimatePresence>
         {loading && <LoadingScreen onDone={() => setTimeout(() => setLoading(false), 300)} />}
@@ -970,7 +971,7 @@ export default function TheLeadsWebsite() {
           <FadeUp delay={0}>
             <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
               style={{ position: "relative", height: 340, borderRadius: 20, overflow: "hidden", gridRow: "span 2" }}>
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80" alt="Luxury Apartment" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=60&fm=webp" alt="Luxury Apartment" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.9) 0%, transparent 50%)" }} />
               <div style={{ position: "absolute", bottom: 20, left: 20, right: 20 }}>
                 <div style={{ fontSize: 11, fontWeight: 800, color: "#60a5fa", letterSpacing: "1px", textTransform: "uppercase", marginBottom: 6 }}>Luxury Apartment</div>
