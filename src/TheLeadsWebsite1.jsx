@@ -112,15 +112,15 @@ const STEPS = [
 
 const WHYS = [
   { title: "Real estate only", desc: "We work exclusively with builders and developers. We know what converts in this market.", icon: "🎯", stat: "100%", color: "#3b82f6" },
-  { title: "No brokers, no commissions", desc: "Buyers connect directly with you. You keep 100% of the deal — no middlemen cutting in.", icon: "🤝", stat: "0%", color: "#8b5cf6" },
+  { title: "Quality over quantity", desc: "Every lead is verified and qualified. We focus on serious buyers who are ready to visit your project.", icon: "✅", stat: "1000+", color: "#8b5cf6" },
   { title: "Transparent reporting", desc: "Weekly reports showing every rupee spent and every lead generated. No black boxes.", icon: "📊", stat: "24/7", color: "#10b981" },
-  { title: "Bangalore expertise", desc: "We know Sarjapur, Whitefield, Devanahalli — the micro-markets, the buyer personas, the price points.", icon: "📍", stat: "3+", color: "#f59e0b" },
+  { title: "Bangalore expertise", desc: "We know Electronic City, Chandapura, Attibele, Ramamurthy Nagar — the micro-markets and buyer personas.", icon: "📍", stat: "5+", color: "#f59e0b" },
 ];
 
 const STATS = [
-  { value: 500, suffix: "+", label: "Leads Delivered", icon: "📈" },
-  { value: 300, prefix: "₹", label: "Avg Cost Per Lead", icon: "💰" },
-  { value: 40, suffix: "+", label: "Site Visits Booked", icon: "🏠" },
+  { value: 1000, suffix: "+", label: "Leads Delivered", icon: "📈" },
+  { value: 5, suffix: " Projects", label: "Active Campaigns", icon: "🏗️" },
+  { value: 5, suffix: " Months", label: "Proven Track Record", icon: "📅" },
   { value: 3, suffix: "x", label: "Avg ROI For Clients", icon: "🚀" },
 ];
 
@@ -147,15 +147,13 @@ const CHAT_MESSAGES = [
 
 const QUICK_REPLIES = ["Get a free consultation", "How does it work?", "What is the pricing?", "Talk to the team"];
 
-// Property images from Unsplash (free)
+// Property images — real projects
 const PROPERTY_IMAGES = [
-  "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
-  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
-  "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80",
-  "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
-  "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80",
-  "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-  "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80",
+  "/maruti.jpg",
+  "/amoga.jpg",
+  "/radiant.jpg",
+  "/garuda.jpg",
+  "/dsmax.jpg",
 ];
 
 // Property images for sections
@@ -350,10 +348,10 @@ export default function TheLeadsWebsite() {
 
             <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
               style={{ fontSize: "clamp(36px,5vw,60px)", fontWeight: 900, lineHeight: 1.08, color: "#fff", marginBottom: 24, letterSpacing: "-2px" }}>
-              Stop waiting for leads.<br />
+              Stop paying brokers.<br />
               <motion.span initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .65, delay: .65 }}
                 style={{ background: "linear-gradient(135deg,#60a5fa,#a78bfa,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", display: "inline-block" }}>
-               Start owning them.
+                Start owning your leads.
               </motion.span>
             </motion.h1>
 
@@ -590,9 +588,9 @@ export default function TheLeadsWebsite() {
               </div>
               <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
                 {[
-                  { value: "4", label: "Active Projects" },
-                  { value: "3+", label: "Months Running" },
-                  { value: "500+", label: "Leads Generated" },
+                  { value: "5", label: "Active Projects" },
+                  { value: "5+", label: "Months Running" },
+                  { value: "1000+", label: "Leads Generated" },
                 ].map((s, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
                     <div style={{ fontSize: 32, fontWeight: 900, color: "#34d399", letterSpacing: "-1px" }}>{s.value}</div>
@@ -795,11 +793,58 @@ export default function TheLeadsWebsite() {
             </FadeUp>
           </div>
 
+          {/* Project 5 — DS Max Sky Classic — Full Width */}
+          <FadeUp delay={0.38}>
+            <motion.div
+              whileHover={{ y: -8, boxShadow: "0 40px 80px rgba(239,68,68,0.3)" }}
+              transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              style={{ borderRadius: 28, overflow: "hidden", position: "relative", background: "#0a0f1e", border: "1px solid rgba(239,68,68,0.15)", marginTop: 28 }}>
+              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.5 }}
+                style={{ position: "relative", height: 340, overflow: "hidden" }}>
+<img src="/dsmax.jpg" alt="DS Max Sky Classic" style={{ width: "100%", height: "100%", objectFit: "contain", objectPosition: "center", background: "linear-gradient(135deg,#1a0a0a,#2d0f0f)", display: "block" }} />                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(10,15,30,1) 0%, rgba(10,15,30,0.4) 40%, transparent 100%)" }} />
+                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: "linear-gradient(90deg,transparent,#ef4444,#f87171,transparent)" }} />
+                <div style={{ position: "absolute", top: 18, left: 18, display: "flex", gap: 8 }}>
+                  <div style={{ background: "rgba(239,68,68,0.95)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, boxShadow: "0 0 16px rgba(239,68,68,0.5)" }}>BDA APPROVED</div>
+                  <div style={{ background: "rgba(59,130,246,0.95)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99 }}>READY TO MOVE</div>
+                </div>
+                <motion.div animate={{ opacity: [1, 0.6, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                  style={{ position: "absolute", top: 18, right: 18, background: "rgba(34,197,94,0.95)", color: "#fff", fontSize: 10, fontWeight: 900, padding: "5px 14px", borderRadius: 99, display: "flex", alignItems: "center", gap: 5, boxShadow: "0 0 16px rgba(34,197,94,0.4)" }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#fff", display: "inline-block" }} />LIVE
+                </motion.div>
+                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "24px 40px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: 16 }}>
+                    <div>
+                      <div style={{ fontSize: 38, fontWeight: 900, color: "#fff", letterSpacing: "-1.5px", lineHeight: 1.1, textShadow: "0 2px 20px rgba(0,0,0,0.8)" }}>DS Max Sky Classic</div>
+                      <div style={{ fontSize: 14, color: "rgba(255,255,255,0.65)", marginTop: 8 }}>📍 Electronic City Phase-1 · 🚇 5 Min from Metro</div>
+                    </div>
+                    <div style={{ background: "rgba(239,68,68,0.15)", border: "1px solid rgba(239,68,68,0.3)", borderRadius: 16, padding: "14px 24px", textAlign: "right", backdropFilter: "blur(12px)" }}>
+                      <div style={{ fontSize: 11, color: "#94a3b8", fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>Starting From</div>
+                      <div style={{ fontSize: 32, fontWeight: 900, color: "#f87171" }}>₹60 Lakhs</div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+              <div style={{ padding: "20px 32px 28px" }}>
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 20 }}>
+                  {["3 BHK Luxury", "Gym", "Swimming Pool", "Kids Play Area", "Party Hall", "ISO 9001:2015", "Limited Units"].map((t, i) => (
+                    <span key={i} style={{ fontSize: 11, fontWeight: 700, padding: "7px 14px", borderRadius: 99, background: "rgba(239,68,68,0.08)", color: "#f87171", border: "1px solid rgba(239,68,68,0.2)" }}>{t}</span>
+                  ))}
+                </div>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", background: "linear-gradient(135deg,rgba(239,68,68,0.08),rgba(239,68,68,0.04))", border: "1px solid rgba(239,68,68,0.15)", borderRadius: 16 }}>
+                  <div style={{ fontSize: 14, color: "#94a3b8" }}>🏆 Trusted Brand · Prime Location · Best Value for Money</div>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6, background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 10, padding: "8px 14px", flexShrink: 0 }}>
+                    <span>✅</span><span style={{ fontSize: 11, fontWeight: 800, color: "#34d399" }}>TheLeads</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </FadeUp>
+
           {/* CTA below portfolio */}
           <FadeUp delay={0.4}>
             <div style={{ textAlign: "center", marginTop: 56, padding: "36px 40px", background: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.15)", borderRadius: 20 }}>
               <div style={{ fontSize: 22, fontWeight: 900, color: "#fff", marginBottom: 10, letterSpacing: "-0.5px" }}>Want results like these? 🚀</div>
-              <p style={{ fontSize: 15, color: "#475569", marginBottom: 24, lineHeight: 1.7 }}>We are currently running successful campaigns for 4 builders in Bangalore. Join them and start getting quality leads today.</p>
+              <p style={{ fontSize: 15, color: "#475569", marginBottom: 24, lineHeight: 1.7 }}>We are currently running successful campaigns for 5 builders in Bangalore — delivering 1000+ leads in 5 months. Join them today!</p>
               <motion.button whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(16,185,129,0.5)" }} whileTap={{ scale: .97 }}
                 onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
                 style={{ background: "linear-gradient(135deg,#10b981,#059669)", color: "#fff", border: "none", borderRadius: 12, padding: "16px 40px", fontSize: 16, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 0 24px rgba(16,185,129,0.3)" }}>
