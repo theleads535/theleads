@@ -347,15 +347,38 @@ export default function TheLeadsWebsite() {
                 style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 8px #22c55e" }} />
               Bangalore's Real Estate Lead Experts
             </motion.div>
-
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
+<motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
               style={{ fontSize: "clamp(36px,5vw,60px)", fontWeight: 900, lineHeight: 1.08, color: "#fff", marginBottom: 24, letterSpacing: "-2px" }}>
-              Stop paying brokers.<br />
+              Stop chasing buyers.<br />
               <motion.span initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .65, delay: .65 }}
                 style={{ background: "linear-gradient(135deg,#60a5fa,#a78bfa,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", display: "inline-block" }}>
-                Start owning your leads.
+                Let buyers find you.
               </motion.span>
             </motion.h1>
+
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .55 }}
+              style={{ marginBottom: 24, maxWidth: 560 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 14, flexWrap: "wrap", padding: "16px 28px", borderRadius: 99, background: "linear-gradient(135deg,rgba(37,99,235,0.12),rgba(124,58,237,0.12))", border: "1px solid rgba(99,102,241,0.3)", backdropFilter: "blur(16px)", boxShadow: "0 0 32px rgba(99,102,241,0.12), inset 0 1px 0 rgba(255,255,255,0.06)" }}>
+                <motion.span animate={{ opacity: [1, 0.7, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+                  style={{ width: 8, height: 8, borderRadius: "50%", background: "#60a5fa", display: "inline-block", boxShadow: "0 0 10px #60a5fa", flexShrink: 0 }} />
+                <span style={{ fontSize: 20, fontWeight: 900, background: "linear-gradient(135deg,#60a5fa,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.5px" }}>We generate leads.</span>
+                <motion.span animate={{ x: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 1, ease: "easeInOut" }}
+                  style={{ fontSize: 20, color: "#34d399", fontWeight: 900, display: "inline-block" }}>⚡</motion.span>
+                <span style={{ fontSize: 20, fontWeight: 900, background: "linear-gradient(135deg,#a78bfa,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.5px" }}>You close the deals.</span>
+                <motion.span animate={{ opacity: [1, 0.7, 1] }} transition={{ repeat: Infinity, duration: 2, delay: 1 }}
+                  style={{ width: 8, height: 8, borderRadius: "50%", background: "#34d399", display: "inline-block", boxShadow: "0 0 10px #34d399", flexShrink: 0 }} />
+              </div>
+            </motion.div>
+
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .55 }}
+              style={{ marginBottom: 24, maxWidth: 520 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "12px 20px", borderRadius: 14, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", backdropFilter: "blur(12px)" }}>
+                <span style={{ fontSize: 22, fontWeight: 900, background: "linear-gradient(135deg,#60a5fa,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.5px" }}>Turn ads into site visits.</span>
+                <motion.span animate={{ x: [0, 6, 0] }} transition={{ repeat: Infinity, duration: 1.2 }}
+                  style={{ fontSize: 22, color: "#34d399", fontWeight: 900 }}>→</motion.span>
+                <span style={{ fontSize: 22, fontWeight: 900, background: "linear-gradient(135deg,#a78bfa,#34d399)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", letterSpacing: "-0.5px" }}>Site visits into sales.</span>
+              </div>
+            </motion.div>
 
             {/* Typewriter */}
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .8 }}
