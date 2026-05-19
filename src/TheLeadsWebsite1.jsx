@@ -138,7 +138,6 @@ const FAQS = [
   { q: "What makes you different from other agencies?", a: "We are 100% focused on real estate. No generic agency juggling 50 industries. Every rupee we spend is optimized for property buyers." },
 ];
 
-const MARQUEE_ITEMS = ["Lead Generation", "Site Visits", "Meta Ads", "Google Ads", "Real Estate", "Bangalore", "Quality Leads", "No Brokers", "Direct Sales", "Campaign Management"];
 
 const CHAT_MESSAGES = [
   { from: "bot", text: "Hi! Welcome to TheLeads. How can I help you today?" },
@@ -159,12 +158,6 @@ const PROPERTY_IMAGES = [
 ];
 
 // Property images for sections
-const SECTION_IMAGES = [
-  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
-  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
-  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
-];
 
 // Animated counter
 function Counter({ value, prefix = "", suffix = "", duration = 2 }) {
