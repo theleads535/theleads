@@ -118,10 +118,10 @@ const WHYS = [
 ];
 
 const STATS = [
-  { value: 500, suffix: "+", label: "Leads Delivered", icon: "📈" },
-  { value: 300, prefix: "₹", label: "Avg Cost Per Lead", icon: "💰" },
-  { value: 40, suffix: "+", label: "Site Visits Booked", icon: "🏠" },
-  { value: 3, suffix: "x", label: "Avg ROI For Clients", icon: "🚀" },
+  { value: 1000, suffix: "+", label: "Leads Delivered", icon: "📈", color: "#3b82f6", glow: "rgba(59,130,246,0.3)", desc: "Quality leads in 5 months" },
+  { value: 5, suffix: "", label: "Active Projects", icon: "🏗️", color: "#8b5cf6", glow: "rgba(139,92,246,0.3)", desc: "Running campaigns" },
+  { value: 48, suffix: "hrs", label: "First Lead Guarantee", icon: "⚡", color: "#10b981", glow: "rgba(16,185,129,0.3)", desc: "After campaign launch" },
+  { value: 3, suffix: "x", label: "Avg ROI For Clients", icon: "🚀", color: "#f59e0b", glow: "rgba(245,158,11,0.3)", desc: "Return on investment" },
 ];
 
 const TESTIMONIALS = [
@@ -347,7 +347,8 @@ export default function TheLeadsWebsite() {
                 style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 8px #22c55e" }} />
               Bangalore's Real Estate Lead Experts
             </motion.div>
-<motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
+
+                        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, delay: .38 }}
               style={{ fontSize: "clamp(36px,5vw,60px)", fontWeight: 900, lineHeight: 1.08, color: "#fff", marginBottom: 24, letterSpacing: "-2px" }}>
               Stop chasing buyers.<br />
               <motion.span initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: .65, delay: .65 }}
@@ -356,8 +357,8 @@ export default function TheLeadsWebsite() {
               </motion.span>
             </motion.h1>
 
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .55 }}
-              style={{ marginBottom: 24, maxWidth: 560 }}>
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: .5 }}
+              style={{ marginBottom: 20, maxWidth: 560 }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: 14, flexWrap: "wrap", padding: "16px 28px", borderRadius: 99, background: "linear-gradient(135deg,rgba(37,99,235,0.12),rgba(124,58,237,0.12))", border: "1px solid rgba(99,102,241,0.3)", backdropFilter: "blur(16px)", boxShadow: "0 0 32px rgba(99,102,241,0.12), inset 0 1px 0 rgba(255,255,255,0.06)" }}>
                 <motion.span animate={{ opacity: [1, 0.7, 1] }} transition={{ repeat: Infinity, duration: 2 }}
                   style={{ width: 8, height: 8, borderRadius: "50%", background: "#60a5fa", display: "inline-block", boxShadow: "0 0 10px #60a5fa", flexShrink: 0 }} />
@@ -454,30 +455,29 @@ export default function TheLeadsWebsite() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <div style={{ background: "rgba(59,130,246,0.08)", borderTop: "1px solid rgba(59,130,246,0.15)", borderBottom: "1px solid rgba(59,130,246,0.15)", padding: "14px 0", overflow: "hidden" }}>
-        <div className="marquee-track" style={{ display: "flex", gap: 48, whiteSpace: "nowrap", width: "max-content" }}>
-          {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-            <span key={i} style={{ fontSize: 13, fontWeight: 700, color: "#60a5fa", letterSpacing: "1px", textTransform: "uppercase", display: "flex", alignItems: "center", gap: 12 }}>
-              <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#3b82f6", display: "inline-block" }} />
-              {item}
-            </span>
-          ))}
+      {/* Stats — Live Counter Section */}
+      <div style={{ background: "rgba(2,8,23,0.98)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "0 5%", position: "relative", overflow: "hidden" }}>
+        <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 600, height: 200, background: "radial-gradient(ellipse,rgba(37,99,235,0.08) 0%,transparent 70%)", pointerEvents: "none" }} />
+        <div style={{ display: "flex", justifyContent: "center", padding: "18px 0 0" }}>
+          <motion.div animate={{ opacity: [1, 0.5, 1] }} transition={{ repeat: Infinity, duration: 2 }}
+            style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", borderRadius: 99, padding: "6px 16px", marginBottom: 8 }}>
+            <span style={{ width: 7, height: 7, borderRadius: "50%", background: "#22c55e", display: "inline-block", boxShadow: "0 0 8px #22c55e" }} />
+            <span style={{ fontSize: 11, fontWeight: 700, color: "#22c55e", letterSpacing: "1px" }}>LIVE STATS — Updated Daily</span>
+          </motion.div>
         </div>
-      </div>
-
-      {/* Stats */}
-      <div style={{ background: "rgba(2,8,23,0.95)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
-        <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", maxWidth: "100%" }}>
+        <div className="stats-grid" style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", maxWidth: "100%", gap: 0 }}>
           {STATS.map((s, i) => (
             <FadeUp key={i} delay={i * .1}>
-              <motion.div whileHover={{ background: "rgba(59,130,246,0.08)" }}
-                style={{ padding: "36px 24px", textAlign: "center", borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "background .2s" }}>
-                <div style={{ fontSize: 24, marginBottom: 10 }}>{s.icon}</div>
-                <div style={{ fontSize: 38, fontWeight: 900, color: "#fff", letterSpacing: "-1.5px", lineHeight: 1, background: "linear-gradient(135deg,#60a5fa,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-                  <Counter value={s.value} prefix={s.prefix || ""} suffix={s.suffix || ""} />
+              <motion.div whileHover={{ background: `rgba(${s.color === "#3b82f6" ? "59,130,246" : s.color === "#8b5cf6" ? "139,92,246" : s.color === "#10b981" ? "16,185,129" : "245,158,11"},0.06)` }}
+                style={{ padding: "32px 24px", textAlign: "center", borderRight: i < STATS.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none", transition: "background .2s", position: "relative", overflow: "hidden" }}>
+                <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", width: 120, height: 120, borderRadius: "50%", background: `radial-gradient(circle,${s.glow} 0%,transparent 70%)`, pointerEvents: "none" }} />
+                <motion.div whileHover={{ scale: 1.2, rotate: 10 }} style={{ fontSize: 28, marginBottom: 12, display: "inline-block" }}>{s.icon}</motion.div>
+                <div style={{ fontSize: 48, fontWeight: 900, letterSpacing: "-2px", lineHeight: 1, background: `linear-gradient(135deg,${s.color},${s.color}aa)`, WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", marginBottom: 8 }}>
+                  <Counter value={s.value} suffix={s.suffix || ""} prefix={s.prefix || ""} />
                 </div>
-                <div style={{ fontSize: 11, color: "#475569", marginTop: 8, fontWeight: 700, letterSpacing: "1px", textTransform: "uppercase" }}>{s.label}</div>
+                <div style={{ fontSize: 12, color: "#f1f5f9", fontWeight: 800, letterSpacing: "0.5px", marginBottom: 6, textTransform: "uppercase" }}>{s.label}</div>
+                <div style={{ fontSize: 11, color: "#334155", fontWeight: 500 }}>{s.desc}</div>
+                <div style={{ position: "absolute", bottom: 0, left: "20%", right: "20%", height: 2, background: `linear-gradient(90deg,transparent,${s.color},transparent)`, borderRadius: 2 }} />
               </motion.div>
             </FadeUp>
           ))}
@@ -554,25 +554,12 @@ export default function TheLeadsWebsite() {
       {/* Why us */}
       <section id="why-us" style={{ padding: "110px 5%", background: "#020817", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(139,92,246,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.02) 1px,transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
-        {/* Property image strip */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginBottom: 64, borderRadius: 20, overflow: "hidden" }}>
-          {SECTION_IMAGES.map((img, i) => (
-            <motion.div key={i} whileHover={{ scale: 1.03 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 160, overflow: "hidden", borderRadius: 12 }}>
-              <img src={img} alt="Property" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(37,99,235,0.5),rgba(124,58,237,0.4))" }} />
-              <div style={{ position: "absolute", bottom: 10, left: 12, fontSize: 10, fontWeight: 800, color: "#fff", letterSpacing: "1px", textTransform: "uppercase" }}>
-                {["Premium Apartments", "Luxury Villas", "Modern Plots", "Commercial Space"][i]}
-              </div>
-            </motion.div>
-          ))}
-        </div>
         <FadeUp>
           <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(16,185,129,0.1)", border: "1px solid rgba(16,185,129,0.25)", color: "#34d399", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Why TheLeads</div>
-          <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: "-2px", lineHeight: 1.1 }}>
-            Built for <span style={{ background: "linear-gradient(135deg,#34d399,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>builders</span>, not brokers
+          <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 60, letterSpacing: "-2px", lineHeight: 1.1 }}>
+            Why choose{" "}
+            <span style={{ background: "linear-gradient(135deg,#34d399,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>TheLeads?</span>
           </h2>
-          <p style={{ fontSize: 17, color: "#475569", maxWidth: 500, lineHeight: 1.78, marginBottom: 60 }}>We exist to fix what's broken in real estate marketing.</p>
         </FadeUp>
         <div className="grid-2" style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }}>
           {WHYS.map((w, i) => (
@@ -613,9 +600,9 @@ export default function TheLeadsWebsite() {
               </div>
               <div style={{ display: "flex", gap: 24, flexWrap: "wrap" }}>
                 {[
-                  { value: "4", label: "Active Projects" },
-                  { value: "3+", label: "Months Running" },
-                  { value: "500+", label: "Leads Generated" },
+                  { value: "5", label: "Active Projects" },
+                  { value: "5+", label: "Months Running" },
+                  { value: "1000+", label: "Leads Generated" },
                 ].map((s, i) => (
                   <div key={i} style={{ textAlign: "center" }}>
                     <div style={{ fontSize: 32, fontWeight: 900, color: "#34d399", letterSpacing: "-1px" }}>{s.value}</div>
@@ -1061,110 +1048,6 @@ export default function TheLeadsWebsite() {
               </motion.button>
             </div>
           </FadeUp>
-        </div>
-      </section>
-
-      {/* Property Gallery */}
-      <section style={{ padding: "80px 5%", background: "#020817", position: "relative", overflow: "hidden" }}>
-        <FadeUp>
-          <div style={{ textAlign: "center", marginBottom: 48 }}>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.25)", color: "#60a5fa", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Property Gallery</div>
-            <h2 style={{ fontSize: "clamp(28px,4vw,44px)", fontWeight: 900, color: "#fff", marginBottom: 14, letterSpacing: "-2px", lineHeight: 1.1 }}>
-              Projects we <span style={{ background: "linear-gradient(135deg,#60a5fa,#a78bfa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>market</span> in Bangalore
-            </h2>
-            <p style={{ fontSize: 16, color: "#475569", maxWidth: 480, margin: "0 auto", lineHeight: 1.78 }}>From luxury apartments to premium villas — we generate leads for all types of real estate projects.</p>
-          </div>
-        </FadeUp>
-
-        {/* Masonry style grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridTemplateRows: "auto", gap: 16 }}>
-          {/* Large image left */}
-          <FadeUp delay={0}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 340, borderRadius: 20, overflow: "hidden", gridRow: "span 2" }}>
-              <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&q=60&fm=webp" alt="Luxury Apartment" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.9) 0%, transparent 50%)" }} />
-              <div style={{ position: "absolute", bottom: 20, left: 20, right: 20 }}>
-                <div style={{ fontSize: 11, fontWeight: 800, color: "#60a5fa", letterSpacing: "1px", textTransform: "uppercase", marginBottom: 6 }}>Luxury Apartment</div>
-                <div style={{ fontSize: 17, fontWeight: 900, color: "#fff" }}>Premium 3BHK Living</div>
-                <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>Whitefield, Bangalore</div>
-              </div>
-            </motion.div>
-          </FadeUp>
-
-          {/* Top middle */}
-          <FadeUp delay={0.1}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
-              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80" alt="Villa" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
-                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Luxury Villa</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Sarjapur Road</div>
-              </div>
-            </motion.div>
-          </FadeUp>
-
-          {/* Top right */}
-          <FadeUp delay={0.15}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
-              <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80" alt="Modern Home" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
-                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Modern Home</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Devanahalli</div>
-              </div>
-            </motion.div>
-          </FadeUp>
-
-          {/* Bottom middle */}
-          <FadeUp delay={0.2}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
-              <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=80" alt="Premium Plot" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
-                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Premium Plot</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Attibele, Bangalore</div>
-              </div>
-            </motion.div>
-          </FadeUp>
-
-          {/* Bottom right */}
-          <FadeUp delay={0.25}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-              style={{ position: "relative", height: 160, borderRadius: 20, overflow: "hidden" }}>
-              <img src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800&q=80" alt="Commercial Space" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.85) 0%, transparent 60%)" }} />
-              <div style={{ position: "absolute", bottom: 14, left: 16 }}>
-                <div style={{ fontSize: 13, fontWeight: 800, color: "#fff" }}>Commercial Space</div>
-                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.6)" }}>Electronic City</div>
-              </div>
-            </motion.div>
-          </FadeUp>
-        </div>
-
-        {/* Bottom row */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginTop: 16 }}>
-          {[
-            { img: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80", title: "2BHK Apartment", location: "Chandapura" },
-            { img: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&q=80", title: "Ready to Move", location: "Ramamurthy Nagar" },
-            { img: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80", title: "Gated Community", location: "Anekal Road" },
-          ].map((item, i) => (
-            <FadeUp key={i} delay={i * 0.1}>
-              <motion.div whileHover={{ scale: 1.02 }} transition={{ duration: 0.3 }}
-                style={{ position: "relative", height: 180, borderRadius: 20, overflow: "hidden" }}>
-                <img src={item.img} alt={item.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(2,8,23,0.9) 0%, transparent 55%)" }} />
-                <div style={{ position: "absolute", bottom: 16, left: 18 }}>
-                  <div style={{ fontSize: 14, fontWeight: 800, color: "#fff" }}>{item.title}</div>
-                  <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 3 }}>📍 {item.location}</div>
-                </div>
-                <div style={{ position: "absolute", top: 14, right: 14, background: "rgba(34,197,94,0.9)", color: "#fff", fontSize: 9, fontWeight: 800, padding: "4px 10px", borderRadius: 99, letterSpacing: "1px" }}>● ACTIVE</div>
-              </motion.div>
-            </FadeUp>
-          ))}
         </div>
       </section>
 
