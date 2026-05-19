@@ -138,6 +138,7 @@ const FAQS = [
   { q: "What makes you different from other agencies?", a: "We are 100% focused on real estate. No generic agency juggling 50 industries. Every rupee we spend is optimized for property buyers." },
 ];
 
+const MARQUEE_ITEMS = ["Lead Generation", "Site Visits", "Meta Ads", "Google Ads", "Real Estate", "Bangalore", "Quality Leads", "No Brokers", "Direct Sales", "Campaign Management"];
 
 const CHAT_MESSAGES = [
   { from: "bot", text: "Hi! Welcome to TheLeads. How can I help you today?" },
@@ -158,6 +159,12 @@ const PROPERTY_IMAGES = [
 ];
 
 // Property images for sections
+const SECTION_IMAGES = [
+  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
+  "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80",
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+  "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&q=80",
+];
 
 // Animated counter
 function Counter({ value, prefix = "", suffix = "", duration = 2 }) {
@@ -436,7 +443,7 @@ export default function TheLeadsWebsite() {
             {/* Floating stat cards */}
             <motion.div animate={{ y: [0, -8, 0] }} transition={{ repeat: Infinity, duration: 3, delay: 0.5 }}
               style={{ position: "absolute", top: -20, right: -20, background: "rgba(2,8,23,0.85)", backdropFilter: "blur(16px)", border: "1px solid rgba(59,130,246,0.3)", borderRadius: 16, padding: "14px 18px", boxShadow: "0 0 24px rgba(59,130,246,0.2)" }}>
-              <div style={{ fontSize: 22, fontWeight: 900, color: "#60a5fa" }}>500+</div>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "#60a5fa" }}>1000+</div>
               <div style={{ fontSize: 11, color: "#64748b", fontWeight: 600 }}>Leads delivered</div>
             </motion.div>
             <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 3.5, delay: 1 }}
