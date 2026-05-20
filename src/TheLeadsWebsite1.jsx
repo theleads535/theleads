@@ -1012,11 +1012,12 @@ export default function TheLeadsWebsite() {
                     "Unlimited leads",
                     "Dedicated lead manager",
                     "Site visit scheduling + followup",
+                    "Weekly leads report on WhatsApp",
                     "5 projects at a time",
                     "24/7 dedicated support",
                     "Weekly strategy call",
                     "Custom creatives & videos",
-                    
+                    "Weekly leads report on WhatsApp",
                   ].map((f, i) => (
                     <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
                       <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
