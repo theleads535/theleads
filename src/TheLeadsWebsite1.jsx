@@ -229,14 +229,13 @@ export default function TheLeadsWebsite() {
     setSubmitting(true);
     setSubmitError("");
     try {
-      const { error } = await supabase.from("leads").insert([{ name: formData.name, phone: formData.phone, project: formData.project, budget: formData.budget }]);
-      if (error) throw error;
-      const msg = `Hello TheLeads!%0AName: ${formData.name}%0APhone: ${formData.phone}%0AProject: ${formData.project}%0ABudget: ${formData.budget}`;
-      window.open(`https://wa.me/918618561535?text=${msg}`, "_blank");
-      setSubmitted(true);
+      await supabase.from("leads").insert([{ name: formData.name, phone: formData.phone, project: formData.project, budget: formData.budget }]);
     } catch (err) {
-      setSubmitError("Something went wrong. Please WhatsApp us directly.");
+      console.log("Supabase error:", err);
     } finally {
+      const msg = `Hello TheLeads!%0AName: ${formData.name}%0APhone: ${formData.phone}%0AProject: ${formData.project}%0ABudget: ${formData.budget}`;
+      window.open(`https://wa.me/919986693238?text=${msg}`, "_blank");
+      setSubmitted(true);
       setSubmitting(false);
     }
   };
@@ -245,10 +244,10 @@ export default function TheLeadsWebsite() {
     setChatMessages(m => [...m, { from: "user", text: reply }]);
     setTimeout(() => {
       let r = "Our team will get back to you shortly!";
-      if (reply.includes("consultation")) r = "Great! Fill the contact form or WhatsApp us at +91 86185 61535.";
+      if (reply.includes("consultation")) r = "Great! Fill the contact form or WhatsApp us at +91 99866 93238.";
       if (reply.includes("work")) r = "We run Meta & Google ads, deliver real-time leads to WhatsApp, and schedule site visits!";
       if (reply.includes("pricing")) r = "We start at Rs.15,000/month + ad spend. Most clients spend Rs.20,000-50,000 on ads/month.";
-      if (reply.includes("team")) r = "Reach us at +91 86185 61535 or theleads535@gmail.com. We respond within 1 hour!";
+      if (reply.includes("team")) r = "Reach us at +91 99866 93238 or theleads535@gmail.com. We respond within 1 hour!";
       setChatMessages(m => [...m, { from: "bot", text: r }]);
     }, 700);
   };
@@ -257,7 +256,7 @@ export default function TheLeadsWebsite() {
     if (!chatInput.trim()) return;
     setChatMessages(m => [...m, { from: "user", text: chatInput }]);
     setChatInput("");
-    setTimeout(() => setChatMessages(m => [...m, { from: "bot", text: "Thanks! WhatsApp us at +91 86185 61535 for the fastest response." }]), 900);
+    setTimeout(() => setChatMessages(m => [...m, { from: "bot", text: "Thanks! WhatsApp us at +91 99866 93238 for the fastest response." }]), 900);
   };
 
   return (
@@ -901,157 +900,57 @@ export default function TheLeadsWebsite() {
       {/* Pricing */}
       <section id="pricing" style={{ padding: "110px 5%", background: "rgba(15,23,42,0.9)", borderTop: "1px solid rgba(255,255,255,0.04)", position: "relative", overflow: "hidden" }}>
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse 60% 50% at 50% 50%,rgba(124,58,237,0.07) 0%,transparent 70%)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(rgba(139,92,246,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(139,92,246,0.02) 1px,transparent 1px)", backgroundSize: "60px 60px", pointerEvents: "none" }} />
-        <div style={{ position: "relative" }}>
+        <div style={{ position: "relative", maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
           <FadeUp>
-            <div style={{ textAlign: "center", marginBottom: 64 }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.25)", color: "#a78bfa", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Pricing Plans</div>
-              <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 16, letterSpacing: "-2px", lineHeight: 1.1 }}>
-                Simple, transparent<br />
-                <span style={{ background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>pricing</span>
-              </h2>
-              <p style={{ fontSize: 17, color: "#475569", maxWidth: 500, margin: "0 auto", lineHeight: 1.78 }}>No hidden fees. No broker commissions. Just quality leads for your real estate project.</p>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "rgba(139,92,246,0.1)", border: "1px solid rgba(139,92,246,0.25)", color: "#a78bfa", fontSize: 10, fontWeight: 800, padding: "6px 14px", borderRadius: 4, marginBottom: 20, letterSpacing: "2px", textTransform: "uppercase" }}>Pricing</div>
+            <h2 style={{ fontSize: "clamp(32px,4vw,50px)", fontWeight: 900, color: "#fff", marginBottom: 20, letterSpacing: "-2px", lineHeight: 1.1 }}>
+              Custom pricing for{" "}
+              <span style={{ background: "linear-gradient(135deg,#a78bfa,#60a5fa)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>every project</span>
+            </h2>
+            <p style={{ fontSize: 18, color: "#94a3b8", lineHeight: 1.8, marginBottom: 16, maxWidth: 600, margin: "0 auto 16px" }}>
+              Every project is different. Pricing depends on your location, target audience and ad budget.
+            </p>
+            <p style={{ fontSize: 18, fontWeight: 800, color: "#f1f5f9", marginBottom: 48 }}>
+              Get a free consultation and we'll give you a <span style={{ color: "#a78bfa" }}>custom quote</span> — no obligation.
+            </p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20, marginBottom: 56 }}>
+              {[
+                { icon: "🎯", title: "Starter", desc: "1 project · Meta Ads · WhatsApp lead delivery · Weekly report", color: "#3b82f6" },
+                { icon: "🚀", title: "Growth", desc: "2 projects · Meta + Google Ads · Site visit scheduling · Daily report", color: "#8b5cf6" },
+                { icon: "👑", title: "Premium", desc: "5 projects · Meta + Google + YouTube · Dedicated manager · 24/7 support", color: "#f59e0b" },
+              ].map((p, i) => (
+                <FadeUp key={i} delay={i * .1}>
+                  <motion.div whileHover={{ y: -8, boxShadow: `0 24px 48px ${p.color}25` }}
+                    style={{ background: "rgba(255,255,255,0.03)", border: `1px solid ${p.color}33`, borderRadius: 20, padding: "32px 24px", position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 3, background: `linear-gradient(90deg,transparent,${p.color},transparent)` }} />
+                    <div style={{ fontSize: 36, marginBottom: 14 }}>{p.icon}</div>
+                    <div style={{ fontSize: 18, fontWeight: 900, color: "#fff", marginBottom: 12 }}>{p.title}</div>
+                    <div style={{ fontSize: 13, color: "#64748b", lineHeight: 1.7 }}>{p.desc}</div>
+                  </motion.div>
+                </FadeUp>
+              ))}
             </div>
-          </FadeUp>
-
-          <div className="grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 24, maxWidth: 1100, margin: "0 auto" }}>
-
-            {/* Starter */}
-            <FadeUp delay={0}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(59,130,246,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(59,130,246,0.2)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,transparent,#3b82f6,transparent)" }} />
-                <div style={{ fontSize: 12, fontWeight: 800, color: "#60a5fa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Starter</div>
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
-                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹15,000</span>
-                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
-                </div>
-                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.20,000/month)</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
-                  {[
-                    "Meta Ads campaign setup",
-                    "Up to 50 leads/month",
-                    "WhatsApp lead delivery",
-                    "Weekly performance report",
-                    "1 project at a time",
-                    "Email support",
-                  ].map((f, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
-                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(59,130,246,0.15)", border: "1px solid rgba(59,130,246,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#60a5fa" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                      </div>
-                      {f}
-                    </div>
-                  ))}
-                </div>
-                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(59,130,246,0.4)" }} whileTap={{ scale: .97 }}
+            <div style={{ padding: "40px", background: "linear-gradient(135deg,rgba(37,99,235,0.1),rgba(124,58,237,0.1))", border: "1px solid rgba(139,92,246,0.3)", borderRadius: 24, backdropFilter: "blur(12px)" }}>
+              <div style={{ fontSize: 22, fontWeight: 900, color: "#fff", marginBottom: 10 }}>💬 Let's talk about your project</div>
+              <p style={{ fontSize: 15, color: "#64748b", marginBottom: 28, lineHeight: 1.7 }}>WhatsApp us or fill the contact form. We'll get back within 1 hour with a custom plan and pricing for your project.</p>
+              <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+                <motion.button whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(139,92,246,0.5)" }} whileTap={{ scale: .97 }}
                   onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-                  style={{ width: "100%", background: "transparent", color: "#60a5fa", border: "1.5px solid rgba(59,130,246,0.4)", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
-                  Get started →
+                  style={{ background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", border: "none", borderRadius: 12, padding: "16px 40px", fontSize: 16, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
+                  Get free consultation →
                 </motion.button>
-              </motion.div>
-            </FadeUp>
-
-            {/* Growth — Most Popular */}
-            <FadeUp delay={0.13}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(124,58,237,0.35)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "linear-gradient(160deg,rgba(37,99,235,0.15),rgba(124,58,237,0.15))", border: "1px solid rgba(139,92,246,0.4)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%", boxShadow: "0 0 40px rgba(124,58,237,0.15)" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,#3b82f6,#7c3aed,#3b82f6)" }} />
-                {/* Most popular badge */}
-                <div style={{ position: "absolute", top: 20, right: 20, background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", fontSize: 10, fontWeight: 800, padding: "4px 12px", borderRadius: 99, letterSpacing: "1px", textTransform: "uppercase", boxShadow: "0 0 16px rgba(124,58,237,0.5)" }}>Most Popular</div>
-                <div style={{ fontSize: 12, fontWeight: 800, color: "#a78bfa", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Growth</div>
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
-                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹30,000</span>
-                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
-                </div>
-                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.30,000/month)</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
-                  {[
-                    "Meta + Google Ads campaigns",
-                    "Up to 120 leads/month",
-                    "WhatsApp + Email delivery",
-                    "Site visit scheduling",
-                    "Daily performance report",
-                    "Up to 2 projects",
-                    "Priority WhatsApp support",
-                    "Monthly strategy call",
-                  ].map((f, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
-                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(139,92,246,0.2)", border: "1px solid rgba(139,92,246,0.4)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#a78bfa" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                      </div>
-                      {f}
-                    </div>
-                  ))}
-                </div>
-                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 32px rgba(124,58,237,0.6)" }} whileTap={{ scale: .97 }}
-                  onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-                  style={{ width: "100%", background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", border: "none", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", boxShadow: "0 0 24px rgba(124,58,237,0.4)" }}>
-                  Get started →
-                </motion.button>
-              </motion.div>
-            </FadeUp>
-
-            {/* Premium */}
-            <FadeUp delay={0.26}>
-              <motion.div whileHover={{ y: -8, boxShadow: "0 32px 72px rgba(245,158,11,0.2)" }}
-                transition={{ type: "spring", stiffness: 280, damping: 22 }}
-                style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(245,158,11,0.2)", borderRadius: 24, padding: "40px 32px", position: "relative", overflow: "hidden", height: "100%" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: "linear-gradient(90deg,transparent,#f59e0b,transparent)" }} />
-                <div style={{ fontSize: 12, fontWeight: 800, color: "#fbbf24", letterSpacing: "2px", textTransform: "uppercase", marginBottom: 16 }}>Premium</div>
-                <div style={{ display: "flex", alignItems: "flex-end", gap: 4, marginBottom: 8 }}>
-                  <span style={{ fontSize: 42, fontWeight: 900, color: "#fff", letterSpacing: "-2px", lineHeight: 1 }}>₹60,000</span>
-                  <span style={{ fontSize: 14, color: "#475569", marginBottom: 8, fontWeight: 600 }}>/month</span>
-                </div>
-                <div style={{ fontSize: 13, color: "#475569", marginBottom: 32 }}>+ Ad spend (min Rs.60,000/month)</div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14, marginBottom: 36 }}>
-                  {[
-                    "Meta + Google + YouTube Ads",
-                    "Unlimited leads",
-                    "Dedicated lead manager",
-                    "Site visit scheduling + followup",
-                    "Weekly leads report on WhatsApp",
-                    "5 projects at a time",
-                    "24/7 dedicated support",
-                    "Weekly strategy call",
-                    "Custom creatives & videos",
-                    "Weekly leads report on WhatsApp",
-                  ].map((f, i) => (
-                    <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#94a3b8" }}>
-                      <div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(245,158,11,0.15)", border: "1px solid rgba(245,158,11,0.3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                        <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5l2 2 4-4" stroke="#fbbf24" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" fill="none"/></svg>
-                      </div>
-                      {f}
-                    </div>
-                  ))}
-                </div>
-                <motion.button whileHover={{ scale: 1.04, boxShadow: "0 0 24px rgba(245,158,11,0.4)" }} whileTap={{ scale: .97 }}
-                  onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-                  style={{ width: "100%", background: "transparent", color: "#fbbf24", border: "1.5px solid rgba(245,158,11,0.4)", borderRadius: 12, padding: "14px", fontSize: 15, fontWeight: 800, cursor: "pointer", fontFamily: "inherit" }}>
-                  Get started →
-                </motion.button>
-              </motion.div>
-            </FadeUp>
-          </div>
-
-          {/* Bottom note */}
-          <FadeUp delay={0.3}>
-            <div style={{ textAlign: "center", marginTop: 48, padding: "24px 32px", background: "rgba(59,130,246,0.06)", border: "1px solid rgba(59,130,246,0.15)", borderRadius: 16, maxWidth: 600, margin: "48px auto 0" }}>
-              <div style={{ fontSize: 14, color: "#60a5fa", fontWeight: 700, marginBottom: 8 }}>🎉 Not sure which plan to choose?</div>
-              <div style={{ fontSize: 13, color: "#475569", lineHeight: 1.7 }}>Get a free consultation and we'll recommend the best plan based on your project size, location and target audience.</div>
-              <motion.button whileHover={{ scale: 1.05, boxShadow: "0 0 24px rgba(59,130,246,0.4)" }} whileTap={{ scale: .97 }}
-                onClick={() => document.getElementById("contact").scrollIntoView({ behavior: "smooth" })}
-                style={{ background: "linear-gradient(135deg,#2563eb,#7c3aed)", color: "#fff", border: "none", borderRadius: 10, padding: "12px 28px", fontSize: 14, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", marginTop: 16 }}>
-                Get free consultation →
-              </motion.button>
+                <motion.a href="https://wa.me/919986693238" target="_blank" rel="noopener noreferrer"
+                  whileHover={{ scale: 1.05, boxShadow: "0 0 40px rgba(37,211,102,0.4)" }}
+                  style={{ background: "linear-gradient(135deg,#25D366,#16a34a)", color: "#fff", border: "none", borderRadius: 12, padding: "16px 40px", fontSize: 16, fontWeight: 800, cursor: "pointer", fontFamily: "inherit", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+                  💬 WhatsApp us
+                </motion.a>
+              </div>
             </div>
           </FadeUp>
         </div>
       </section>
 
-      {/* FAQ */}
+            {/* FAQ */}
       <section style={{ padding: "110px 5%", background: "#020817" }}>
         <div style={{ maxWidth: 740, margin: "0 auto" }}>
           <FadeUp>
@@ -1098,7 +997,7 @@ export default function TheLeadsWebsite() {
             <p style={{ fontSize: 15, color: "#475569", lineHeight: 1.82, marginBottom: 40 }}>Tell us about your project and we'll show you exactly how many leads we can generate — before you spend a single rupee.</p>
             <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
               {[
-                { label: "WhatsApp", val: "+91 86185 61535", icon: "💬", color: "rgba(34,197,94,0.15)", border: "rgba(34,197,94,0.2)" },
+                { label: "WhatsApp", val: "+91 99866 93238", icon: "💬", color: "rgba(34,197,94,0.15)", border: "rgba(34,197,94,0.2)" },
                 { label: "Email", val: "theleads535@gmail.com", icon: "📧", color: "rgba(59,130,246,0.15)", border: "rgba(59,130,246,0.2)" },
                 { label: "Instagram", val: "@thele.ads", icon: "📸", color: "rgba(225,48,108,0.15)", border: "rgba(225,48,108,0.2)" },
                 { label: "Location", val: "Bangalore, Karnataka", icon: "📍", color: "rgba(245,158,11,0.15)", border: "rgba(245,158,11,0.2)" },
@@ -1180,7 +1079,7 @@ export default function TheLeadsWebsite() {
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </motion.a>
               {/* WhatsApp */}
-              <motion.a href="https://wa.me/918618561535" target="_blank" rel="noopener noreferrer"
+              <motion.a href="https://wa.me/919986693238" target="_blank" rel="noopener noreferrer"
                 whileHover={{ scale: 1.15, boxShadow: "0 0 20px rgba(37,211,102,0.5)" }} whileTap={{ scale: .95 }}
                 style={{ width: 40, height: 40, borderRadius: 12, background: "linear-gradient(135deg,#25D366,#128C7E)", display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1210,7 +1109,7 @@ export default function TheLeadsWebsite() {
           <div>
             <div style={{ fontSize: 12, fontWeight: 800, color: "#60a5fa", letterSpacing: "1.5px", textTransform: "uppercase", marginBottom: 20 }}>Contact</div>
             {[
-              { icon: "💬", text: "+91 86185 61535", href: "https://wa.me/918618561535" },
+              { icon: "💬", text: "+91 99866 93238", href: "https://wa.me/919986693238" },
               { icon: "📧", text: "theleads535@gmail.com", href: "mailto:theleads535@gmail.com" },
               { icon: "📍", text: "Bangalore, Karnataka", href: "#" },
               { icon: "📸", text: "@thele.ads", href: "https://www.instagram.com/thele.ads" },
